@@ -1,0 +1,29 @@
+# Batch & Build
+
+> Batch & Build is a small studio selling printable planners, trackers, spreadsheet templates, guides and simple scripts as instant digital downloads on Gumroad. Tagline: "Planners & templates that make life easier."
+
+- Website: https://batchandbuildco.co.site/
+- Shop: https://mortonix631.gumroad.com/
+- All templates by category: https://batchandbuildco.co.site/shop.html
+- Social: @batchandbuildco on Instagram (https://www.instagram.com/batchandbuildco/), Pinterest (https://www.pinterest.com/batchandbuildco/), Tumblr (https://batchandbuildco.tumblr.com/)
+- Contact: info@batchandbuildco.co.site
+
+## Featured products
+- [Job Application Tracker](https://mortonix631.gumroad.com/l/job-application-tracker): $7. 6 printable US Letter pages to log applications, prep for interviews and track follow-ups (PDF).
+- [Paycheck Budget Pack](https://mortonix631.gumroad.com/l/paycheck-budget-pack): $8. 8 undated printable worksheets for splitting each paycheck into bills, spending and savings, for people paid weekly or biweekly (PDF).
+- [Batch & Build: 30-Day Macro-Friendly Meal Prep Guide](https://mortonix631.gumroad.com/l/batch-and-build): $9. 17-page guide with 9 repeatable high-protein recipes, 2 cook nights a week, 4 weeks mapped, grocery lists and storage notes (PDF).
+- [Small Business Scripts](https://mortonix631.gumroad.com/l/invoice-payout-reorder-kit): $19. 3 Python 3 command-line tools (invoice from JSON, payout ledger from CSV, reorder list from inventory). No installs, no API keys.
+
+## Catalog categories
+- [Planners & Trackers](https://batchandbuildco.co.site/category/planners.html)
+- [Budget & Money](https://batchandbuildco.co.site/category/budget.html)
+- [Meal Prep & Recipes](https://batchandbuildco.co.site/category/meal-prep.html)
+- [Career & Business](https://batchandbuildco.co.site/category/career.html)
+- [Nursing & Study](https://batchandbuildco.co.site/category/nursing-study.html)
+- [Health & Fitness](https://batchandbuildco.co.site/category/health.html)
+- [Family & Baby](https://batchandbuildco.co.site/category/family.html)
+- [Home & Travel](https://batchandbuildco.co.site/category/home.html)
+
+## Policies
+- [Refunds](https://batchandbuildco.co.site/refunds.html)
+- [Privacy](https://batchandbuildco.co.site/privacy.html)
