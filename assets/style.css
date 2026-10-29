@@ -166,3 +166,11 @@ h1,h2,h3{color:inherit}h2 em,h1 em{color:#D8C08A}
 .sidebar .catbtn:focus-visible{outline:3px solid #E6D3A6;outline-offset:3px;box-shadow:0 0 0 2px #0B3D2A}
 .sidebar details.cat ul{margin:.4rem 0 .2rem}
 @media (max-width:900px){.sidebar:not(.open) .sidebody{display:none}.sidebar .sidebody{flex-direction:row;flex-wrap:wrap}.sidebar .sidebody>a.catbtn,.sidebar .sidebody>details.cat{flex:1 1 auto;width:auto}.sidebar details.cat[open]{flex-basis:100%}}
+/* top nav buttons (ticker removed) */
+.ticker{display:none!important}
+.nav{flex-wrap:wrap}
+.nav nav.topnav{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:.45rem}
+.nav nav.topnav a.navbtn{display:inline-block;background:#0F4A31;color:#F7F4EC;border:1px solid #D8C08A;border-radius:999px;padding:.42rem .9rem;font-size:.88rem;font-weight:600;line-height:1.2;text-decoration:none;white-space:nowrap;transition:background .15s,color .15s}
+.nav nav.topnav a.navbtn:hover,.nav nav.topnav a.navbtn:focus-visible{background:#D8C08A;color:#0B3D2A}
+.nav nav.topnav a.navbtn[aria-current="page"]{background:#D8C08A;color:#0B3D2A}
+@media (max-width:700px){.nav{justify-content:center}.nav nav.topnav{justify-content:center;width:100%;gap:.35rem}.nav nav.topnav a.navbtn{display:inline-block!important;font-size:.78rem;padding:.38rem .7rem}}
