@@ -126,3 +126,26 @@ h1,h2,h3{color:inherit}h2 em,h1 em{color:#D8C08A}
 .post h2{margin-top:1.8rem}.post ul,.post ol{padding-left:1.4rem}.post li{margin:.35rem 0}
 .post a{color:#D8C08A;text-decoration:underline}.post .note{font-size:.9rem;opacity:.9;font-style:italic}
 .post .card h3 a{color:#1E3A2B;text-decoration:none}
+/* ===== v4: cream text on green + soft-edge banners ===== */
+:root{--mfg-on-green:#F3E9D2}
+.about p,.contact p,.page p,.page li,.blurb,.lead,.lead2,.note,.crumbs,.crumbs a,.copy,.foot,.foot nav a,.post article,.post .note,.catpage>p,.catpage header p,.pdp-info,.pdp-sec,.pdp-sec li,.pdp-sec p,.facts,.facts li,.noreviews,.hero,.hero p,figcaption,.caption,small{color:#F3E9D2;opacity:1}
+.foot nav a:hover,.nav nav a:not(.btn):hover{color:#D8C08A}
+.eyebrow.dark,.eyebrow{color:#D8C08A}
+.card small,.tile small,.sidebar small,.promo small,.faq details small,.refund small{color:#3F5446}
+.catbtn small{opacity:1}
+.faq details p,.faq details,.faq details a,.card p,.tile p,.promo .code,.trust span{opacity:1}
+/* hero: background on a masked layer so text stays crisp */
+.hero{background:#1E3A2B;isolation:isolate;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,42,31,.25),rgba(20,42,31,.8)),url(img/hero.jpg) center/cover;-webkit-mask-image:radial-gradient(ellipse closest-side at 50% 45%,#000 70%,transparent 100%);mask-image:radial-gradient(ellipse closest-side at 50% 45%,#000 70%,transparent 100%)}
+.hero h1,.hero .lead{text-shadow:0 2px 14px rgba(10,24,16,.75)}
+.about img,.h20 img,.post article img{-webkit-mask-image:radial-gradient(ellipse closest-side at 50% 50%,#000 72%,transparent 100%);mask-image:radial-gradient(ellipse closest-side at 50% 50%,#000 72%,transparent 100%);border:0;box-shadow:none}
+.post a,.pdp-sec a,.viewall,.grouph a,.price,.stars span,.foot a.social,.social a{color:#E6D3A6}.social a:hover{color:#1E3A2B}
+.refund,.refund p,.refund a,.refund small,.h20 p,.h20 small{color:#1E3A2B}.h20 p{color:#3F5446}
+.nav nav a.btn,.nav nav a.btn:hover{color:#1E3A2B}
+.catbtn.active small,.catbtn.active{color:#F3E9D2}
+.sidebar p,.sidebar li,.sidebar small,.pdp-sec details p,.pdp-sec .card p,.pdp-sec .tile p,.pdp-sec .promo p{color:#1E3A2B}
+.card p,.tile p,.trust span,.promo .code,.card .tag,.promo .tag,.tile span,.card .mini,.card small,.tile small,.promo small,.cat li a,.card b{color:#33473A}
+.eyebrow,.eyebrow.dark{color:#E6D3A6}
+/* soft rectangular edge fade (replaces oval vignette) */
+.hero::before{-webkit-mask-image:linear-gradient(to right,transparent 0,#000 10%,#000 90%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 12%,#000 85%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0,#000 10%,#000 90%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 12%,#000 85%,transparent 100%);mask-composite:intersect}
+.about img,.h20 img,.post article img{-webkit-mask-image:linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 14%,#000 86%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 14%,#000 86%,transparent 100%);mask-composite:intersect;border-radius:0}
