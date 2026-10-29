@@ -76,3 +76,4 @@ a.catbtn{text-decoration:none}.catbtn small{float:right;opacity:.6;font-weight:5
 .tile img{aspect-ratio:16/9;object-fit:cover;width:100%}.tile div{padding:1rem 1.2rem 1.2rem}.tile h3{font-size:1.2rem;margin-bottom:.2rem}.tile p{font-size:.88rem;color:var(--mfg);margin:0 0 .6rem}.tile span{font-weight:600;font-size:.85rem;color:#9a7f43}
 .catpage h1{font-size:clamp(2.4rem,5vw,4rem)}.blurb{color:var(--mfg);font-size:1.1rem}
 .crumbs{max-width:1320px;margin:0 auto 1rem;font-size:.85rem;color:var(--mfg)}.crumbs a{text-decoration:none}.crumbs a:hover{text-decoration:underline}
+.social{display:flex;flex-wrap:wrap;gap:.6rem}.social a{display:inline-flex;align-items:center;gap:.4rem;padding:.4rem .8rem;border-radius:999px;background:#1E3A2B;color:#F3EAD3;text-decoration:none;font-size:.82rem;font-weight:500;border:1px solid #D8C08A;transition:background .2s,color .2s}.social a:hover{background:#D8C08A;color:#1E3A2B}.social svg{width:16px;height:16px;fill:currentColor}
