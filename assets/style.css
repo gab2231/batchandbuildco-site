@@ -86,3 +86,28 @@ a.catbtn{text-decoration:none}.catbtn small{float:right;opacity:.6;font-weight:5
 .faq{max-width:820px;margin:0 auto;padding:4rem clamp(1rem,4vw,3rem)}.faq details{background:#F3EAD3;border:1px solid rgba(216,192,138,.6);border-radius:14px;padding:.9rem 1.2rem;margin-bottom:.7rem}.faq summary{font-weight:600;color:#1E3A2B;cursor:pointer}.faq details p{margin:.6rem 0 0}
 .pdp-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:2rem;align-items:start}.pdp-img{width:100%;height:auto;border-radius:18px;border:1px solid rgba(216,192,138,.6);background:#F3EAD3}.pdp h1{font-size:clamp(1.8rem,3.4vw,2.6rem);margin:.2rem 0 .4rem}.price{font-size:1.6rem;font-weight:700;color:#1E3A2B;margin:0 0 .6rem}.facts{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.3rem;font-size:.92rem}.note{font-size:.82rem;opacity:.7;margin-top:.6rem}.pdp-sec{margin-top:3rem}.pdp-sec h2{font-size:1.7rem;margin-bottom:1rem}.pdp-sec ul{padding-left:1.2rem;display:grid;gap:.45rem}.pdp-sec.faq{padding:0;max-width:none}
 @media (max-width:760px){.pdp-top{grid-template-columns:1fr}}
+/* ===== Deep green theme (WCAG AA) ===== */
+:root{--bg:#1E3A2B;--ink:#F7F4EC;--ink2:#D9E3DC;--panel:#F3EAD3;--pink:#1E3A2B;--pmuted:#3F5446}
+body{background:#1E3A2B;color:#F7F4EC}
+.shop,.about,.contact,.faq,.catpage,.trust{color:#F7F4EC}
+.eyebrow.dark,.eyebrow{color:#D8C08A}
+.blurb,.lead2,.note,.crumbs,.crumbs a{color:#D9E3DC}
+h1,h2,h3{color:inherit}h2 em,h1 em{color:#D8C08A}
+.nav{background:#16301F!important;color:#F7F4EC;border-bottom:1px solid rgba(216,192,138,.45)}.nav nav a{color:#F7F4EC}.nav .brand,.foot .brand{color:#F7F4EC}
+.btn,.btn-sm,.btn-lg{background:#D8C08A;color:#1E3A2B;border-color:#D8C08A}.btn:hover{background:#E6D3A6;color:#1E3A2B}
+.btn-ghost{background:transparent;color:#F7F4EC;border-color:#D8C08A}
+.card,.tile,.sidebar,.trust div,.promo,.faq details,.pdp-img{background:#F3EAD3;color:#1E3A2B;border-color:#D8C08A}
+.card h3,.tile h3,.sidebar a,.sidebar summary,.trust b,.promo h3,.faq summary,.faq details p,.faq details a{color:#1E3A2B}
+.card p,.tile p,.trust span,.promo .code,.card .tag,.promo .tag,.tile span{color:#3F5446;opacity:1}
+.card .btn,.sidebar .shopbtn,.promo .code b{background:#1E3A2B;color:#F7F4EC;border-color:#1E3A2B}.card .btn:hover,.sidebar .shopbtn:hover{background:#2C5240;color:#fff}
+.catbtn:hover{background:#E8DCBC}.catbtn.active{background:#1E3A2B;color:#F7F4EC}
+.viewall,.grouph a,.pdp-sec a{color:#D8C08A}.price{color:#D8C08A}
+.foot{background:#16301F;color:#F7F4EC;border-top:1px solid #D8C08A}.foot nav a,.copy{color:#F7F4EC}
+.social a{background:transparent;color:#D8C08A;border-color:#D8C08A}.social a:hover{background:#D8C08A;color:#1E3A2B}
+.ticker{background:#D8C08A;color:#1E3A2B}.tk{color:#1E3A2B}
+.sidebar details.cat{border-bottom:1px solid rgba(30,58,43,.15)}.sidebar summary{list-style:none;display:flex;align-items:center;gap:.4rem;cursor:pointer}.sidebar summary::-webkit-details-marker{display:none}.sidebar summary small{margin-left:auto;float:none}
+.chev{width:.55rem;height:.55rem;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .2s;margin:0 .2rem .2rem .4rem}details[open]>summary .chev{transform:rotate(-135deg);margin-bottom:-.1rem}
+.sidebar ul{margin:.2rem 0 .6rem;padding-left:1rem}.sidebar li.catall a{font-weight:700}
+.sidetoggle{color:#1E3A2B}
+.about img{border:1px solid #D8C08A}
+.about{background:#16301F;color:#F7F4EC}.contact{background:#16301F;border-top:1px solid rgba(216,192,138,.45)}
