@@ -156,3 +156,13 @@ h1,h2,h3{color:inherit}h2 em,h1 em{color:#D8C08A}
 .brand span b{-webkit-text-fill-color:#E6D3A6}
 .nav{padding-top:.5rem;padding-bottom:.5rem}
 @media (max-width:700px){.brand img{height:62px;width:auto;border-radius:0}.foot .brand img{height:56px}.nav{gap:.6rem;padding:.4rem 1rem}}
+/* ticker edge fade + category pill buttons (Oct 29) */
+.ticker{-webkit-mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent)}
+.sidebar .sidebody{display:flex;flex-direction:column;gap:.5rem}
+.sidebar details.cat{border-bottom:0}
+.sidebar .catbtn,.sidebar summary.catbtn{display:flex;align-items:center;gap:.4rem;width:100%;min-height:44px;box-sizing:border-box;padding:8px 16px;border:1px solid #E6D3A6;border-radius:999px;background:#0B3D2A linear-gradient(rgba(243,233,210,.06),rgba(243,233,210,.06));color:#F3E9D2;font-weight:600;text-decoration:none;transition:background .2s,color .2s}
+.sidebar .catbtn small{color:inherit;opacity:.8;margin-left:auto;float:none}
+.sidebar .catbtn:hover,.sidebar .catbtn:focus-visible,.sidebar .catbtn.active{background:#E6D3A6;color:#0B3D2A}
+.sidebar .catbtn:focus-visible{outline:3px solid #E6D3A6;outline-offset:3px;box-shadow:0 0 0 2px #0B3D2A}
+.sidebar details.cat ul{margin:.4rem 0 .2rem}
+@media (max-width:900px){.sidebar:not(.open) .sidebody{display:none}.sidebar .sidebody{flex-direction:row;flex-wrap:wrap}.sidebar .sidebody>a.catbtn,.sidebar .sidebody>details.cat{flex:1 1 auto;width:auto}.sidebar details.cat[open]{flex-basis:100%}}
