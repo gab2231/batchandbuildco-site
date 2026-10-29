@@ -1,0 +1,16 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Meal Prep Cost Calculator | Batch &amp; Build</title><meta name="robots" content="noindex"><link rel="canonical" href="https://batchandbuildco.co.site/meal-prep-cost-calculator.html"><link rel="stylesheet" href="../assets/tools.css"></head><body class="embed"><h1>Meal Prep Cost Calculator</h1><form class="calc" id="calc" novalidate>
+ <fieldset><legend>Ingredients</legend>
+  <div id="rows"></div>
+  <button type="button" class="pill" id="addrow">+ Add ingredient</button>
+ </fieldset>
+ <div class="calc-grid">
+  <label>Number of servings<input type="number" id="servings" min="1" max="200" step="1" value="10" inputmode="numeric" required></label>
+  <label>Eat-out cost per meal ($)<input type="number" id="eatout" min="0" max="500" step="0.01" value="12" inputmode="decimal" required><small>Assumption: $12 is our default. Change it to what a meal out costs you.</small></label>
+ </div>
+ <p class="calc-err" id="err" role="alert" hidden></p>
+ <button type="submit" class="btn">Calculate</button>
+</form>
+<div class="calc-out" id="out" aria-live="polite" hidden>
+ <div class="stats"><div><span>Total cost</span><b id="o-total"></b></div><div><span>Cost per serving</span><b id="o-per"></b></div><div><span>Weekly savings</span><b id="o-week"></b></div><div><span>Monthly savings</span><b id="o-month"></b></div></div>
+ <p class="calc-note" id="o-note"></p>
+</div><p class="powered"><a href="https://batchandbuildco.co.site/meal-prep-cost-calculator.html" target="_blank" rel="noopener">Powered by Batch &amp; Build</a></p><script src="../assets/calc.js"></script></body></html>
