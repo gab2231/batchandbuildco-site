@@ -121,3 +121,8 @@ h1,h2,h3{color:inherit}h2 em,h1 em{color:#D8C08A}
 .gallery img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:10px;border:1px solid #D8C08A;background:#fff}
 .stars{font-size:1rem}.stars span{color:#D8C08A;letter-spacing:2px}
 .noreviews{font-style:italic}
+/* Blog */
+.post{max-width:760px}.post article{font-size:1.08rem;line-height:1.7;color:#F7F4EC}
+.post h2{margin-top:1.8rem}.post ul,.post ol{padding-left:1.4rem}.post li{margin:.35rem 0}
+.post a{color:#D8C08A;text-decoration:underline}.post .note{font-size:.9rem;opacity:.9;font-style:italic}
+.post .card h3 a{color:#1E3A2B;text-decoration:none}

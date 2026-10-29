@@ -27,3 +27,8 @@
 ## Policies
 - [Refunds](https://batchandbuildco.co.site/refunds.html)
 - [Privacy](https://batchandbuildco.co.site/privacy.html)
+
+## Blog
+- [Blog index](https://batchandbuildco.co.site/blog/)
+- [How to Budget Biweekly Paychecks (Without a Monthly Budget That Never Fits)](https://batchandbuildco.co.site/blog/how-to-budget-biweekly-paychecks.html): A simple, paycheck-by-paycheck method for budgeting when you're paid every two weeks, including what to do in the months with three paychecks.
+- [30-Day Meal Prep Grocery List: How to Shop Once a Week and Cook Ahead](https://batchandbuildco.co.site/blog/30-day-meal-prep-grocery-list.html): A practical, flexible grocery list framework for a month of high-protein meal prep, plus tips for shopping on a budget and storing food safely.
