@@ -1,34 +1,103 @@
 # Batch & Build
 
-> Batch & Build is a small studio selling printable planners, trackers, spreadsheet templates, guides and simple scripts as instant digital downloads on Gumroad. Tagline: "Planners & templates that make life easier."
+> Batch & Build is a small home and planning shop. It sells made-to-order home goods (rugs, candles, clocks, pillows, blankets, wall art and kitchen pieces) and instant-download printable planners, trackers, spreadsheet templates and guides. Tagline: "Make home life easier."
 
 - Website: https://batchandbuildco.co.site/
-- Shop: https://mortonix631.gumroad.com/
-- All templates by category: https://batchandbuildco.co.site/shop.html
-- Social: @batchandbuildco on Instagram (https://www.instagram.com/batchandbuildco/), Pinterest (https://www.pinterest.com/batchandbuildco/), Tumblr (https://batchandbuildco.tumblr.com/), X (https://x.com/batchandbuildco)
+- Shop (home goods): https://batchandbuildco.co.site/home-goods/
+- Digital downloads by category: https://batchandbuildco.co.site/shop.html
+- Blog: https://batchandbuildco.co.site/blog/
 - Contact: info@batchandbuildco.co.site
 
-## Featured products
-- [Job Application Tracker](https://mortonix631.gumroad.com/l/job-application-tracker): $7. 6 printable US Letter pages to log applications, prep for interviews and track follow-ups (PDF).
-- [Paycheck Budget Pack](https://mortonix631.gumroad.com/l/paycheck-budget-pack): $8. 8 undated printable worksheets for splitting each paycheck into bills, spending and savings, for people paid weekly or biweekly (PDF).
-- [Batch & Build: 30-Day Macro-Friendly Meal Prep Guide](https://mortonix631.gumroad.com/l/batch-and-build): $9. 17-page guide with 9 repeatable high-protein recipes, 2 cook nights a week, 4 weeks mapped, grocery lists and storage notes (PDF).
-- [Small Business Scripts](https://mortonix631.gumroad.com/l/invoice-payout-reorder-kit): $19. 3 Python 3 command-line tools (invoice from JSON, payout ledger from CSV, reorder list from inventory). No installs, no API keys.
+## Shipping & returns
+- Home goods are made to order, ships in about 5–9 business days (US only).
+- Damaged or defective items: email info@batchandbuildco.co.site within 30 days with a photo for a replacement or refund. Made-to-order items can't be returned for change of mind.
+- Digital downloads are delivered instantly after checkout. Refund policy: https://batchandbuildco.co.site/refunds.html
 
-## Catalog categories
-- [Planners & Trackers](https://batchandbuildco.co.site/category/planners.html)
-- [Budget & Money](https://batchandbuildco.co.site/category/budget.html)
-- [Meal Prep & Recipes](https://batchandbuildco.co.site/category/meal-prep.html)
-- [Career & Business](https://batchandbuildco.co.site/category/career.html)
-- [Nursing & Study](https://batchandbuildco.co.site/category/nursing-study.html)
-- [Health & Fitness](https://batchandbuildco.co.site/category/health.html)
-- [Family & Baby](https://batchandbuildco.co.site/category/family.html)
-- [Home & Travel](https://batchandbuildco.co.site/category/home.html)
+## Shop categories (home goods)
+- [All products](https://batchandbuildco.co.site/home-goods/all.html): Shop All products from Batch & Build: made-to-order home goods that ship in about 5–9 business days (US only).
+- [Rugs](https://batchandbuildco.co.site/home-goods/rugs.html): Shop Rugs from Batch & Build: made-to-order home goods that ship in about 5–9 business days (US only).
+- [Candles](https://batchandbuildco.co.site/home-goods/candles.html): Shop Candles from Batch & Build: made-to-order home goods that ship in about 5–9 business days (US only).
+- [Clocks](https://batchandbuildco.co.site/home-goods/clocks.html): Shop Clocks from Batch & Build: made-to-order home goods that ship in about 5–9 business days (US only).
+- [Pillows & Blankets](https://batchandbuildco.co.site/home-goods/pillows-blankets.html): Shop Pillows & Blankets from Batch & Build: made-to-order home goods that ship in about 5–9 business days (US only).
+- [Wall Art](https://batchandbuildco.co.site/home-goods/wall-art.html): Shop Wall Art from Batch & Build: made-to-order home goods that ship in about 5–9 business days (US only).
+- [Kitchen](https://batchandbuildco.co.site/home-goods/kitchen.html): Shop Kitchen from Batch & Build: made-to-order home goods that ship in about 5–9 business days (US only).
+
+## Home goods
+- [Batch It. Build It. Apron](https://batchandbuildco.co.site/home-goods/apron.html): $44.00. A white kitchen apron with adjustable black straps and the "Batch it. Build it." wheat design. One size. Made to order.
+- [Cork Coasters, Set of 4](https://batchandbuildco.co.site/home-goods/cork-coasters-4.html): $38.00. Four 3.74 in square coasters with cork backs and the green Batch & Build wheat design. Made to order.
+- [GATHER Framed Poster 18×24](https://batchandbuildco.co.site/home-goods/gather-poster-18x24.html): $89.00. An 18 × 24 in matte poster in a red oak frame, with the GATHER wheat illustration. Made to order and arrives ready to hang.
+- [Gently Sorted Glass Cutting Board](https://batchandbuildco.co.site/home-goods/glass-cutting-board.html): $45.00. An 8 × 11 in tempered glass cutting board with the "Gently sorted" herb design. Made to order.
+- [Persian-Style Area Rug 24×36](https://batchandbuildco.co.site/home-goods/persian-rug-24x36.html): $69.00. A 24 × 36 in printed area rug with a red, navy and cream Persian-inspired Batch & Build pattern. Made to order; this is a printed rug, not hand-knotted.
+- [Sherpa Blanket 50×60](https://batchandbuildco.co.site/home-goods/sherpa-blanket-50x60.html): $79.00. A cozy 50 × 60 in sherpa-backed throw blanket in deep green with the Batch & Build wheat design. Made to order.
+- [Plans & Lists Journal](https://batchandbuildco.co.site/home-goods/softcover-journal.html): $22.00. A 5.75 × 8 in softcover journal with 100 pages for meals, shopping and prep lists. Made to order.
+- [Signature Soy Candle 9oz](https://batchandbuildco.co.site/home-goods/soy-candle-9oz.html): $34.00. A 9 oz soy wax candle in a glass jar with the Batch & Build label. Made to order and usually ships in 5–9 business days in the US.
+- [Prep Day Tea Towel](https://batchandbuildco.co.site/home-goods/tea-towel.html): $24.00. A 28 × 16 in white tea towel printed with a simple Prep Day checklist. Made to order.
+- [Rustic Throw Pillow 18×18](https://batchandbuildco.co.site/home-goods/throw-pillow-18x18.html): $45.00. A soft 18 × 18 in throw pillow with the Batch & Build wheat design on the front and back. Includes the insert. Made to order.
+- [Vintage Oushak-Style Area Rug 24×36](https://batchandbuildco.co.site/home-goods/vintage-oushak-rug-24x36.html): $69.00. A 24 × 36 in area rug with a faded, vintage-style Oushak medallion in muted terracotta, sage and cream. Made to order; machine-made, not hand-knotted.
+- [Vintage Oushak-Style Area Rug 4×6 ft](https://batchandbuildco.co.site/home-goods/vintage-oushak-rug-4x6.html): $179.00. A 4 × 6 ft area rug with a faded, vintage-style Oushak medallion in muted terracotta, sage and cream. Made to order; machine-made, not hand-knotted.
+- [Batch & Build Wall Clock](https://batchandbuildco.co.site/home-goods/wall-clock.html): $59.00. A round wall clock with a printed Batch & Build face. Made to order.
+
+## Digital download categories
+- [Budget & Money](https://batchandbuildco.co.site/category/budget.html): Paychecks, debt, net worth and the bills in between. Printable planners and templates from Batch & Build.
+- [Career & Business](https://batchandbuildco.co.site/category/career.html): Job search, side hustles and small business tools. Printable planners and templates from Batch & Build.
+- [Family & Baby](https://batchandbuildco.co.site/category/family.html): Baby prep, newborn days, pets and big life moments. Printable planners and templates from Batch & Build.
+- [Health & Fitness](https://batchandbuildco.co.site/category/health.html): Workouts, health logs and family medical records. Printable planners and templates from Batch & Build.
+- [Home & Travel](https://batchandbuildco.co.site/category/home.html): Moving, cleaning, gardens, inventory and trips. Printable planners and templates from Batch & Build.
+- [Meal Prep & Recipes](https://batchandbuildco.co.site/category/meal-prep.html): Plan the week, shop once and cook ahead. Printable planners and templates from Batch & Build.
+- [Nursing & Study](https://batchandbuildco.co.site/category/nursing-study.html): Study plans, clinical sheets and school admin. Printable planners and templates from Batch & Build.
+- [Planners & Trackers](https://batchandbuildco.co.site/category/planners.html): Habits, focus, reading and daily planning. Printable planners and templates from Batch & Build.
+
+## Digital downloads
+- [2027 Bible Reading Plan Spreadsheet and Printable](https://batchandbuildco.co.site/p/2027-bible-reading-plan-spreadsheet-and-printable.html): $9. 2027 Bible Reading Plan Spreadsheet and Printable from Batch & Build. A one-year Bible reading plan spreadsheet: pick cover to cover or Old + New Testament to
+- [2027 Habit Tracker Spreadsheet](https://batchandbuildco.co.site/p/2027-habit-tracker-spreadsheet.html): $12. 2027 Habit Tracker Spreadsheet from Batch & Build. 
+- [2027 Low-Buy Year and Money Reset Kit](https://batchandbuildco.co.site/p/2027-low-buy-year-and-money-reset-kit.html): $9. 2027 Low-Buy Year and Money Reset Kit from Batch & Build. 
+- [2027 Paycheck Budget Planner Spreadsheet](https://batchandbuildco.co.site/p/2027-paycheck-budget-planner-spreadsheet.html): $12. 2027 Paycheck Budget Planner Spreadsheet from Batch & Build. A 2027 budget spreadsheet that plans each paycheck: bills first, then spending, then savings. Inc
+- [2027 Reading Tracker Spreadsheet](https://batchandbuildco.co.site/p/2027-reading-tracker-spreadsheet.html): $12. 2027 Reading Tracker Spreadsheet from Batch & Build. A book tracker spreadsheet that turns one book log into your goal progress, pace, monthly stats and a 100
+- [2027 Workout Planner and Log](https://batchandbuildco.co.site/p/2027-workout-planner-and-log.html): $14. 2027 Workout Planner and Log from Batch & Build. 
+- [30-Day Meal Prep Guide](https://batchandbuildco.co.site/p/30-day-meal-prep-guide.html): $9. 30-Day Meal Prep Guide from Batch & Build. A 17-page meal prep guide: 9 repeatable high-protein recipes, 2 cook nights a week and 4 weeks already mapped, with
+- [ADHD Planner Spreadsheet and Printable ADHD Planner](https://batchandbuildco.co.site/p/adhd-planner-spreadsheet-and-printable-adhd-planner.html): $9. ADHD Planner Spreadsheet and Printable ADHD Planner from Batch & Build. An ADHD-friendly planner spreadsheet: dump every thought in one place, block out your 
+- [ADHD Task Breakdown Spreadsheet](https://batchandbuildco.co.site/p/adhd-task-breakdown-spreadsheet.html): $7. ADHD Task Breakdown Spreadsheet from Batch & Build. An ADHD-friendly task kit: break big tasks into small steps and see the next step, % done and minutes left
+- [Baby Registry Checklist Spreadsheet](https://batchandbuildco.co.site/p/baby-registry-checklist-spreadsheet.html): $7. Baby Registry Checklist Spreadsheet from Batch & Build. A baby registry checklist spreadsheet and baby prep planner: 59 items by category to start, priorities
+- [Biweekly Paycheck Budget Worksheets](https://batchandbuildco.co.site/p/biweekly-paycheck-budget-worksheets.html): $8. Biweekly Paycheck Budget Worksheets from Batch & Build. 8 undated printable worksheets for splitting each paycheck into bills, spending and savings, for anyon
+- [Blood Pressure Log Spreadsheet and Printable BP Tracker](https://batchandbuildco.co.site/p/blood-pressure-log-spreadsheet-and-printable-bp-tracker.html): $7. Blood Pressure Log Spreadsheet and Printable BP Tracker from Batch & Build. A blood pressure log spreadsheet: type each home reading and see your last reading
+- [Budget High-Protein Meal Prep Plan](https://batchandbuildco.co.site/p/budget-high-protein-meal-prep-plan.html): $12. Budget High-Protein Meal Prep Plan from Batch & Build. A 4-week high-protein meal prep plan built on cheap staples: 16 recipes, grocery lists and a spreadshee
+- [Christmas Budget Planner Spreadsheet](https://batchandbuildco.co.site/p/christmas-budget-planner-spreadsheet.html): $9. Christmas Budget Planner Spreadsheet from Batch & Build. A holiday spreadsheet for gifts, budget, Black Friday deals, cards, events and meals, with a 16-page 
+- [Cleaning Schedule and Home Maintenance Planner](https://batchandbuildco.co.site/p/cleaning-schedule-and-home-maintenance-planner.html): $12. Cleaning Schedule and Home Maintenance Planner from Batch & Build. 
+- [College Application Tracker and Scholarship Tracker Spreadsheet](https://batchandbuildco.co.site/p/college-application-tracker-and-scholarship-tracker-spreadsheet.html): $9. College Application Tracker and Scholarship Tracker Spreadsheet from Batch & Build. A college application tracker spreadsheet: colleges, scholarships, essays 
+- [Debt Snowball Calculator Spreadsheet](https://batchandbuildco.co.site/p/debt-snowball-calculator-spreadsheet.html): $9. Debt Snowball Calculator Spreadsheet from Batch & Build. A debt snowball calculator: list up to 12 debts with balance, APR and minimum payment, set one monthl
+- [End-of-Life Planner Spreadsheet and Printable](https://batchandbuildco.co.site/p/end-of-life-planner-spreadsheet-and-printable.html): $12. End-of-Life Planner Spreadsheet and Printable from Batch & Build. An end-of-life planner spreadsheet: key contacts, where documents are kept, accounts and ben
+- [Free 1-Week High-Protein Meal Prep Sampler](https://batchandbuildco.co.site/p/free-1-week-high-protein-meal-prep-sampler.html): Free. Free 1-Week High-Protein Meal Prep Sampler from Batch & Build. A free week of high-protein meal prep on a grocery budget: menu, step-by-step prep timelines, g
+- [Free Printable Job Application Log](https://batchandbuildco.co.site/p/free-printable-job-application-log.html): Free. Free Printable Job Application Log from Batch & Build. A free 1-page printable log for 21 job applications: company, role, date applied, status, follow-up dat
+- [Garden Planner Spreadsheet and Printable Garden Planner](https://batchandbuildco.co.site/p/garden-planner-spreadsheet-and-printable-garden-planner.html): $9. Garden Planner Spreadsheet and Printable Garden Planner from Batch & Build. A vegetable garden planner spreadsheet: type your last frost date once and every p
+- [Golf Score Tracker Spreadsheet](https://batchandbuildco.co.site/p/golf-score-tracker-spreadsheet.html): $12. Golf Score Tracker Spreadsheet from Batch & Build. A golf score tracker: add the courses and tees you play, log each round, and see each Score Differential, a
+- [Handmade Pricing Calculator Spreadsheet](https://batchandbuildco.co.site/p/handmade-pricing-calculator-spreadsheet.html): $12. Handmade Pricing Calculator Spreadsheet from Batch & Build. A pricing calculator for handmade products: materials cost per unit, recipes for one item, your ti
+- [Home Inventory Spreadsheet and Printable Home Inventory for Insurance](https://batchandbuildco.co.site/p/home-inventory-spreadsheet-and-printable-home-inventory-for-insurance.html): $7. Home Inventory Spreadsheet and Printable Home Inventory for Insurance from Batch & Build. A home inventory spreadsheet for insurance: list what you own room b
+- [Job Search and Budget Fresh Start Bundle](https://batchandbuildco.co.site/p/job-search-and-budget-fresh-start-bundle.html): $19. Job Search and Budget Fresh Start Bundle from Batch & Build. 3 PDFs to organize your job search, your paychecks and your meals: 31 pages in total.
+- [Medical Binder Spreadsheet and Printable Family Medical Binder](https://batchandbuildco.co.site/p/medical-binder-spreadsheet-and-printable-family-medical-binder.html): $9. Medical Binder Spreadsheet and Printable Family Medical Binder from Batch & Build. A family medical binder spreadsheet: health profiles for up to 8 people, me
+- [Mileage Log Spreadsheet and Printable Mileage Log](https://batchandbuildco.co.site/p/mileage-log-spreadsheet-and-printable-mileage-log.html): $9. Mileage Log Spreadsheet and Printable Mileage Log from Batch & Build. A mileage log spreadsheet: log each trip and it looks up the IRS standard mileage rate f
+- [Money Bundle Low-Buy Kit and Paycheck Budget Pack](https://batchandbuildco.co.site/p/money-bundle-low-buy-kit-and-paycheck-budget-pack.html): Money Bundle Low-Buy Kit and Paycheck Budget Pack from Batch & Build. 
+- [Moving Planner Spreadsheet](https://batchandbuildco.co.site/p/moving-planner-spreadsheet.html): $9. Moving Planner Spreadsheet from Batch & Build. A moving planner spreadsheet: type your move day once and 46 starter tasks get due dates counted back from it, 
+- [NCLEX Study Tracker Spreadsheet](https://batchandbuildco.co.site/p/nclex-study-tracker-spreadsheet.html): $9. NCLEX Study Tracker Spreadsheet from Batch & Build. An NCLEX study tracker spreadsheet for the NCLEX-RN or NCLEX-PN: plan your weeks, log every study session 
+- [Net Worth Tracker Spreadsheet](https://batchandbuildco.co.site/p/net-worth-tracker-spreadsheet.html): $9. Net Worth Tracker Spreadsheet from Batch & Build. A net worth tracker spreadsheet: list your accounts once, type each balance once a month, and see net worth,
+- [Newborn Tracker Spreadsheet](https://batchandbuildco.co.site/p/newborn-tracker-spreadsheet.html): $7. Newborn Tracker Spreadsheet from Batch & Build. A newborn tracker spreadsheet: log feeds, diapers, sleep, pumping, medicine, temperatures and growth, and see 
+- [Nurse CEU Tracker Spreadsheet and Printable CE Log](https://batchandbuildco.co.site/p/nurse-ceu-tracker-spreadsheet-and-printable-ce-log.html): $7. Nurse CEU Tracker Spreadsheet and Printable CE Log from Batch & Build. A nurse CEU and license tracker spreadsheet: track every license, certification and lif
+- [Nurse Report Sheets Printable](https://batchandbuildco.co.site/p/nurse-report-sheets-printable.html): $7. Nurse Report Sheets Printable from Batch & Build. Printable nurse report sheets (brain sheets): 10 layouts for 1, 2 and 4 patients, day and night hourly sheet
+- [Printable Job Application Tracker](https://batchandbuildco.co.site/p/printable-job-application-tracker.html): $7. Printable Job Application Tracker from Batch & Build. 6 blank printable pages to log every application, prep for interviews and keep track of follow-ups.
+- [Puppy Training Tracker Spreadsheet](https://batchandbuildco.co.site/p/puppy-training-tracker-spreadsheet.html): $12. Puppy Training Tracker Spreadsheet from Batch & Build. A puppy training tracker: log potty trips, short training sessions, new experiences, vet visits and wei
+- [Recipe Binder Spreadsheet and Printable Recipe Cards](https://batchandbuildco.co.site/p/recipe-binder-spreadsheet-and-printable-recipe-cards.html): $9. Recipe Binder Spreadsheet and Printable Recipe Cards from Batch & Build. A recipe binder spreadsheet: every recipe in one sortable index with ratings, status 
+- [Small Business Invoice and Inventory Scripts](https://batchandbuildco.co.site/p/small-business-invoice-and-inventory-scripts.html): $19. Small Business Invoice and Inventory Scripts from Batch & Build. 3 small Python 3 command-line scripts: turn a JSON file into a print-ready invoice, total you
+- [Social Media Content Calendar Spreadsheet](https://batchandbuildco.co.site/p/social-media-content-calendar-spreadsheet.html): $14. Social Media Content Calendar Spreadsheet from Batch & Build. 
+- [Subscription Tracker Spreadsheet](https://batchandbuildco.co.site/p/subscription-tracker-spreadsheet.html): $9. Subscription Tracker Spreadsheet from Batch & Build. A subscription tracker spreadsheet that works out each subscription's next charge date, monthly and yearl
+- [Tax Year 2026 Side-Hustle Tax-Prep Kit](https://batchandbuildco.co.site/p/tax-year-2026-side-hustle-tax-prep-kit.html): $9. Tax Year 2026 Side-Hustle Tax-Prep Kit from Batch & Build. Track side-hustle income, expenses, mileage and estimated tax for tax year 2026, then hand off one 
+- [Teacher Gradebook Spreadsheet](https://batchandbuildco.co.site/p/teacher-gradebook-spreadsheet.html): $9. Teacher Gradebook Spreadsheet from Batch & Build. A teacher gradebook spreadsheet for 40 students and 60 assignments: weighted categories or total points, you
+- [Timesheet and PTO Tracker Spreadsheet](https://batchandbuildco.co.site/p/timesheet-and-pto-tracker-spreadsheet.html): $9. Timesheet and PTO Tracker Spreadsheet from Batch & Build. A timesheet and PTO tracker for one hourly worker: type each shift's date, start, end and unpaid bre
+- [Travel Planner Spreadsheet](https://batchandbuildco.co.site/p/travel-planner-spreadsheet.html): $9. Travel Planner Spreadsheet from Batch & Build. A travel planner spreadsheet for one trip: bookings with confirmation numbers and balances due, a day-by-day it
+- [Wedding Budget Planner Spreadsheet](https://batchandbuildco.co.site/p/wedding-budget-planner-spreadsheet.html): $14. Wedding Budget Planner Spreadsheet from Batch & Build. 
+
+## Blog
+- [30-Day Meal Prep Grocery List](https://batchandbuildco.co.site/blog/30-day-meal-prep-grocery-list.html): A practical, flexible grocery list framework for a month of high-protein meal prep, plus tips for shopping on a budget and storing food safely.
+- [How to Budget Biweekly Paychecks](https://batchandbuildco.co.site/blog/how-to-budget-biweekly-paychecks.html): A simple, paycheck-by-paycheck method for budgeting when you're paid every two weeks, including what to do in the months with three paychecks.
 
 ## Policies
 - [Refunds](https://batchandbuildco.co.site/refunds.html)
 - [Privacy](https://batchandbuildco.co.site/privacy.html)
-
-## Blog
-- [Blog index](https://batchandbuildco.co.site/blog/)
-- [How to Budget Biweekly Paychecks (Without a Monthly Budget That Never Fits)](https://batchandbuildco.co.site/blog/how-to-budget-biweekly-paychecks.html): A simple, paycheck-by-paycheck method for budgeting when you're paid every two weeks, including what to do in the months with three paychecks.
-- [30-Day Meal Prep Grocery List: How to Shop Once a Week and Cook Ahead](https://batchandbuildco.co.site/blog/30-day-meal-prep-grocery-list.html): A practical, flexible grocery list framework for a month of high-protein meal prep, plus tips for shopping on a budget and storing food safely.
