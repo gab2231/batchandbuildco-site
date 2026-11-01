@@ -7,12 +7,18 @@
    hierarchy and CTAs. Navy hex #1F3A6F is still a verified against navy leaf logo 2026-11-01 (#1F3A6F dominant)
    against the navy leaf logo before any live swap. */
 :root{--bb-page:#FAF6EF;--bb-card:#FFFDF8;--bb-image-bg:#F3EDE3;--bb-navy:#1F3A6F;--bb-body:#2B2620;--bb-sage:#7A8B6F;--bb-rule:#E3D9C8}
-body{background:var(--bb-page);color:var(--bb-body);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0}
+body{background:var(--bb-page);color:var(--bb-body);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;font-size:16px;line-height:1.6}
 a{color:var(--bb-navy)} header,main{max-width:1080px;margin:0 auto;padding:16px}
+h1,h2,h3{color:var(--bb-navy);line-height:1.2}
 h1{font-size:44px;line-height:1.05;letter-spacing:-0.5px;font-weight:900}
 h2{font-size:28px;font-weight:800} h3{font-size:20px;font-weight:800}
-.hero{background:linear-gradient(135deg,var(--bb-card),var(--bb-image-bg));border:1px solid var(--bb-rule);border-radius:20px;padding:28px;margin:8px 0 24px}
+.breadcrumb,.count-line,small{font-size:14px;color:#6B6257}
+.card p strong,.buy p strong{color:var(--bb-navy);font-size:18px}
+.section-title{font-size:28px;font-weight:800;color:var(--bb-navy);margin:8px 0}
+.hero{background:linear-gradient(135deg,var(--bb-card),var(--bb-image-bg));border:1px solid var(--bb-rule);border-radius:20px;padding:28px;margin:8px 0 24px;display:grid;grid-template-columns:1.15fr 0.85fr;gap:24px;align-items:center}
 .hero p{font-size:19px} .hero .btn-primary,.hero .btn-outline{width:auto;min-width:220px}
+.hero img{width:100%;height:280px;object-fit:cover;border-radius:16px;display:block;box-shadow:0 8px 24px rgba(43,38,32,0.15)}
+@media (max-width:700px){.hero{grid-template-columns:1fr;padding:20px} .hero img{height:220px}}
 .section-rule{height:6px;background:var(--bb-sage);border-radius:999px;margin:28px 0;opacity:0.55}
 nav.top{display:flex;gap:16px;flex-wrap:wrap} nav.top a{font-weight:700}
 /* Less-clunky tabs, 2026-11-01: one horizontal scroll row instead of a
@@ -46,7 +52,7 @@ nav.top{display:flex;gap:16px;flex-wrap:wrap} nav.top a{font-weight:700}
 .cat-collapse .tabs{margin:8px 0 4px}
 </style></head><body>
 <header><nav class="top"><a href="https://batchandbuildco.co.site/">Home</a> <a href="https://batchandbuildco.co.site/shop.html">Digital Downloads</a> <a href="https://batchandbuildco.co.site/home-goods/index.html">Shop</a> <a href="https://batchandbuildco.co.site/#how-it-works">How it works</a> <a href="mailto:info@batchandbuildco.co.site">Contact</a> <a href="https://batchandbuildco.co.site/cart.html">Cart</a></nav></header>
-<main><p class="breadcrumb">Home › Shop › Bags</p><h1>Bags</h1><p>Carry pieces in faux and genuine leather.</p><p>5 products</p><nav class="tabs" aria-label="Shop categories">
+<main><p class="breadcrumb">Home › Shop › Bags</p><h1>Bags</h1><p>Carry pieces in faux and genuine leather.</p><p class="count-line">5 products</p><nav class="tabs" aria-label="Shop categories">
 <a href="all.html">All <span class="count">(21)</span></a>
 <a href="kitchen.html">Kitchen <span class="count">(6)</span></a>
 <a href="pillows-blankets.html">Pillows &amp; Blankets <span class="count">(3)</span></a>
