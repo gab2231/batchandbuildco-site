@@ -15,8 +15,16 @@ h2{font-size:28px;font-weight:800} h3{font-size:20px;font-weight:800}
 .hero p{font-size:19px} .hero .btn-primary,.hero .btn-outline{width:auto;min-width:220px}
 .section-rule{height:6px;background:var(--bb-sage);border-radius:999px;margin:28px 0;opacity:0.55}
 nav.top{display:flex;gap:16px;flex-wrap:wrap} nav.top a{font-weight:700}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0} .tabs a{padding:8px 14px;border:1.5px solid var(--bb-navy);border-radius:999px;text-decoration:none;font-weight:700}
-.tabs a.active{background:var(--bb-navy);color:#fff;box-shadow:0 4px 14px rgba(31,58,95,0.25)}
+/* Less-clunky tabs, 2026-11-01: one horizontal scroll row instead of a
+   wrapping wall of pills; thinner borders, lighter weight, muted counts,
+   no heavy shadow. On desktop they fit on one line; on mobile they scroll. */
+.tabs{display:flex;gap:6px;flex-wrap:nowrap;overflow-x:auto;margin:12px 0;padding-bottom:4px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{flex:0 0 auto;padding:7px 13px;border:1px solid rgba(31,58,111,0.35);border-radius:999px;text-decoration:none;font-weight:600;font-size:14px;background:var(--bb-card);white-space:nowrap}
+.tabs a .count{opacity:0.6;font-weight:400;font-size:13px}
+.tabs a.active{background:var(--bb-navy);color:#fff;border-color:var(--bb-navy);box-shadow:none}
+.controls{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:14px;margin:4px 0 16px}
+.controls select{padding:6px 8px;border:1px solid var(--bb-rule);border-radius:8px;background:var(--bb-card);font-size:14px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
 .card{background:var(--bb-card);border:1px solid var(--bb-rule);border-radius:16px;padding:14px;box-shadow:0 2px 10px rgba(43,38,32,0.06)}
 .card .img{background:var(--bb-image-bg);border-radius:12px;min-height:180px;display:flex;align-items:center;justify-content:center}
@@ -39,16 +47,16 @@ nav.top{display:flex;gap:16px;flex-wrap:wrap} nav.top a{font-weight:700}
 </style></head><body>
 <header><nav class="top"><a href="https://batchandbuildco.co.site/">Home</a> <a href="https://batchandbuildco.co.site/shop.html">Digital Downloads</a> <a href="https://batchandbuildco.co.site/home-goods/index.html">Shop</a> <a href="https://batchandbuildco.co.site/#how-it-works">How it works</a> <a href="mailto:info@batchandbuildco.co.site">Contact</a> <a href="https://batchandbuildco.co.site/cart.html">Cart</a></nav></header>
 <main><p class="breadcrumb">Home › Shop</p><h1>All products</h1><p>Browse by category, or see everything at once.</p><p>21 products</p><nav class="tabs" aria-label="Shop categories">
-<a href="all.html" class="active">All (21)</a>
-<a href="kitchen.html">Kitchen (6)</a>
-<a href="pillows-blankets.html">Pillows &amp; Blankets (3)</a>
-<a href="rugs.html">Rugs (3)</a>
-<a href="bags.html">Bags (5)</a>
-<a href="apparel.html">Apparel (1)</a>
-<a href="candles.html">Candles (1)</a>
-<a href="wall-art.html">Wall Art (1)</a>
-<a href="clocks.html">Clocks (1)</a>
-</nav><p><label>Sort <select data-sort><option>Featured</option><option>Price: Low to High</option><option>Price: High to Low</option><option>Newest</option><option>Name A–Z</option></select></label> <label>Filter by price <select data-filter-price><option>All prices</option><option>Under $25</option><option>$25–$50</option><option>$50–$100</option><option>Over $100</option></select></label></p><p class="note">Sort and price filter narrow the visible grid only; they create no new URLs.</p><div class="grid"><article class="card"><div class="img"><img src="/assets/img/m_stressed-but-blessed-hoodie.webp" alt="Stressed But Blessed Hoodie"></div><h3><a href="stressed-but-blessed-hoodie.html">Stressed But Blessed Hoodie</a></h3><p>A cream hoodie with the Batch &amp; Build logo and #StressedButBlessed. Made to order.</p><p><strong>$39.99</strong> <span class="badge">Made to order</span></p><a href="stressed-but-blessed-hoodie.html"><button type="button" class="btn-outline">Choose options</button></a></article>
+<a href="all.html" class="active">All <span class="count">(21)</span></a>
+<a href="kitchen.html">Kitchen <span class="count">(6)</span></a>
+<a href="pillows-blankets.html">Pillows &amp; Blankets <span class="count">(3)</span></a>
+<a href="rugs.html">Rugs <span class="count">(3)</span></a>
+<a href="bags.html">Bags <span class="count">(5)</span></a>
+<a href="apparel.html">Apparel <span class="count">(1)</span></a>
+<a href="candles.html">Candles <span class="count">(1)</span></a>
+<a href="wall-art.html">Wall Art <span class="count">(1)</span></a>
+<a href="clocks.html">Clocks <span class="count">(1)</span></a>
+</nav><p class="controls"><label>Sort <select data-sort><option>Featured</option><option>Price: Low to High</option><option>Price: High to Low</option><option>Newest</option><option>Name A–Z</option></select></label> <label>Filter by price <select data-filter-price><option>All prices</option><option>Under $25</option><option>$25–$50</option><option>$50–$100</option><option>Over $100</option></select></label></p><div class="grid"><article class="card"><div class="img"><img src="/assets/img/m_stressed-but-blessed-hoodie.webp" alt="Stressed But Blessed Hoodie"></div><h3><a href="stressed-but-blessed-hoodie.html">Stressed But Blessed Hoodie</a></h3><p>A cream hoodie with the Batch &amp; Build logo and #StressedButBlessed. Made to order.</p><p><strong>$39.99</strong> <span class="badge">Made to order</span></p><a href="stressed-but-blessed-hoodie.html"><button type="button" class="btn-outline">Choose options</button></a></article>
 <article class="card"><div class="img"><img src="/assets/img/m_home-planned-blanket.webp" alt="Home, Planned. Throw Blanket"></div><h3><a href="home-planned-throw-blanket.html">Home, Planned. Throw Blanket</a></h3><p>A 50 × 60 in throw blanket printed with &#x27;Home, Planned.&#x27; Made to order.</p><p><strong>$54.99</strong> <span class="badge">Made to order</span></p><button type="button" class="btn-primary" data-add-to-cart data-product-id="bb-home-planned-blanket">Add to cart</button></article>
 <article class="card"><div class="img"><img src="/assets/img/m_bills-paid-mug.webp" alt="Bills Paid Mug"></div><h3><a href="bills-paid-mug.html">Bills Paid Mug</a></h3><p>An 11 oz white mug printed with &#x27;Bills paid. Meals planned. Week handled.&#x27; and a small Batch &amp; Build logo at the bottom right. Made to order.</p><p><strong>$15.99</strong> <span class="badge">Made to order</span></p><button type="button" class="btn-primary" data-add-to-cart data-product-id="bb-bills-paid-mug">Add to cart</button></article>
 <article class="card"><div class="img"><img src="/assets/img/m_crossbody.jpg" alt="Batch &amp; Build faux leather crossbody bag"></div><h3><a href="crossbody-faux-leather.html">Batch &amp; Build Faux Leather Crossbody Bag</a></h3><p>A compact crossbody bag in faux leather (vegan PU) with an all-over Batch &amp; Build pattern on the front and back. Adjustable strap, zip top and a branded inside label. Made to order, ships in about 5–9 business days (US only).</p><p><strong>$49.00</strong> <span class="badge">Made to order</span></p><a href="crossbody-faux-leather.html"><button type="button" class="btn-outline">Choose options</button></a></article>

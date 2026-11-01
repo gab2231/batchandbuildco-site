@@ -15,8 +15,16 @@ h2{font-size:28px;font-weight:800} h3{font-size:20px;font-weight:800}
 .hero p{font-size:19px} .hero .btn-primary,.hero .btn-outline{width:auto;min-width:220px}
 .section-rule{height:6px;background:var(--bb-sage);border-radius:999px;margin:28px 0;opacity:0.55}
 nav.top{display:flex;gap:16px;flex-wrap:wrap} nav.top a{font-weight:700}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0} .tabs a{padding:8px 14px;border:1.5px solid var(--bb-navy);border-radius:999px;text-decoration:none;font-weight:700}
-.tabs a.active{background:var(--bb-navy);color:#fff;box-shadow:0 4px 14px rgba(31,58,95,0.25)}
+/* Less-clunky tabs, 2026-11-01: one horizontal scroll row instead of a
+   wrapping wall of pills; thinner borders, lighter weight, muted counts,
+   no heavy shadow. On desktop they fit on one line; on mobile they scroll. */
+.tabs{display:flex;gap:6px;flex-wrap:nowrap;overflow-x:auto;margin:12px 0;padding-bottom:4px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{flex:0 0 auto;padding:7px 13px;border:1px solid rgba(31,58,111,0.35);border-radius:999px;text-decoration:none;font-weight:600;font-size:14px;background:var(--bb-card);white-space:nowrap}
+.tabs a .count{opacity:0.6;font-weight:400;font-size:13px}
+.tabs a.active{background:var(--bb-navy);color:#fff;border-color:var(--bb-navy);box-shadow:none}
+.controls{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:14px;margin:4px 0 16px}
+.controls select{padding:6px 8px;border:1px solid var(--bb-rule);border-radius:8px;background:var(--bb-card);font-size:14px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
 .card{background:var(--bb-card);border:1px solid var(--bb-rule);border-radius:16px;padding:14px;box-shadow:0 2px 10px rgba(43,38,32,0.06)}
 .card .img{background:var(--bb-image-bg);border-radius:12px;min-height:180px;display:flex;align-items:center;justify-content:center}
@@ -39,15 +47,15 @@ nav.top{display:flex;gap:16px;flex-wrap:wrap} nav.top a{font-weight:700}
 </style></head><body>
 <header><nav class="top"><a href="https://batchandbuildco.co.site/">Home</a> <a href="https://batchandbuildco.co.site/shop.html">Digital Downloads</a> <a href="https://batchandbuildco.co.site/home-goods/index.html">Shop</a> <a href="https://batchandbuildco.co.site/#how-it-works">How it works</a> <a href="mailto:info@batchandbuildco.co.site">Contact</a> <a href="https://batchandbuildco.co.site/cart.html">Cart</a></nav></header>
 <main><nav class="product-nav" aria-label="Back and categories"><a class="back-arrow" href="kitchen.html" onclick="if(history.length>1){history.back();return false;}" aria-label="Back to last page">←</a><details class="cat-collapse"><summary>Categories</summary><nav class="tabs" aria-label="Shop categories">
-<a href="all.html">All (21)</a>
-<a href="kitchen.html" class="active">Kitchen (6)</a>
-<a href="pillows-blankets.html">Pillows &amp; Blankets (3)</a>
-<a href="rugs.html">Rugs (3)</a>
-<a href="bags.html">Bags (5)</a>
-<a href="apparel.html">Apparel (1)</a>
-<a href="candles.html">Candles (1)</a>
-<a href="wall-art.html">Wall Art (1)</a>
-<a href="clocks.html">Clocks (1)</a>
+<a href="all.html">All <span class="count">(21)</span></a>
+<a href="kitchen.html" class="active">Kitchen <span class="count">(6)</span></a>
+<a href="pillows-blankets.html">Pillows &amp; Blankets <span class="count">(3)</span></a>
+<a href="rugs.html">Rugs <span class="count">(3)</span></a>
+<a href="bags.html">Bags <span class="count">(5)</span></a>
+<a href="apparel.html">Apparel <span class="count">(1)</span></a>
+<a href="candles.html">Candles <span class="count">(1)</span></a>
+<a href="wall-art.html">Wall Art <span class="count">(1)</span></a>
+<a href="clocks.html">Clocks <span class="count">(1)</span></a>
 </nav></details></nav><p class="breadcrumb">Home › Shop › <a href="kitchen.html">Kitchen</a> › Batch It. Build It. Apron</p><div class="detail"><div><div style="background:var(--bb-image-bg);border-radius:12px;padding:8px"><img src="/assets/img/m_apron.jpg" alt="White apron with the Batch it. Build it. design" style="max-width:100%"><img src="/assets/img/hg/apron-2.jpg" alt="White apron with the Batch it. Build it. design, view 2" style="max-width:100%"></div></div><div class="buy"><h1>Batch It. Build It. Apron</h1><p><strong>$44.00</strong> <span class="badge">Made to order</span></p><p>A white kitchen apron with adjustable black straps and the &quot;Batch it. Build it.&quot; wheat design. One size. Made to order.</p><div class="qty"><label>Quantity <input type="number" value="1" min="1" max="10" data-qty></label></div><button type="button" class="btn-primary" data-add-to-cart data-product-id="bb-apron">Add to cart</button><p><a href="kitchen.html">← Back to Kitchen</a></p><p>Made to order · Ships in the US · Secure Stripe checkout</p></div></div><h2>Details</h2><ul><li>Size: Apron White One size</li><li>Made to order, ships in about 5–9 business days (US only)</li></ul><h2>Shipping &amp; returns</h2><p>Each piece is made to order and ships in about 5–9 business days (US only). If it arrives damaged or defective, email info@batchandbuildco.co.site within 30 days with a photo and we&#x27;ll replace it or refund you. Because every item is made to order, we can&#x27;t accept change-of-mind returns.</p><h2>You may also like</h2><div class="grid"><article class="card"><div class="img"><img src="/assets/img/m_towel.jpg" alt="Prep Day tea towel with a checklist"></div><h3><a href="tea-towel.html">Prep Day Tea Towel</a></h3><p>A 28 × 16 in white tea towel printed with a simple Prep Day checklist. Made to order.</p><p><strong>$24.00</strong> <span class="badge">Made to order</span></p><button type="button" class="btn-primary" data-add-to-cart data-product-id="bb-tea-towel">Add to cart</button></article><article class="card"><div class="img"><img src="/assets/img/m_coasters.jpg" alt="Green cork-back coaster with the Batch &amp; Build wheat design"></div><h3><a href="cork-coasters-4.html">Cork Coasters, Set of 4</a></h3><p>Four 3.74 in square coasters with cork backs and the green Batch &amp; Build wheat design. Made to order.</p><p><strong>$38.00</strong> <span class="badge">Made to order</span></p><button type="button" class="btn-primary" data-add-to-cart data-product-id="bb-cork-coasters-4">Add to cart</button></article><article class="card"><div class="img"><img src="/assets/img/m_journal.jpg" alt="Green Plans &amp; Lists softcover journal"></div><h3><a href="softcover-journal.html">Plans &amp; Lists Journal</a></h3><p>A 5.75 × 8 in softcover journal with 100 pages for meals, shopping and prep lists. Made to order.</p><p><strong>$22.00</strong> <span class="badge">Made to order</span></p><button type="button" class="btn-primary" data-add-to-cart data-product-id="bb-softcover-journal">Add to cart</button></article></div></main>
 <!-- Generated from products.json. Do not hand-edit: edit products.json and re-run generate.py. -->
 <script src="/assets/hgcart.js"></script>
