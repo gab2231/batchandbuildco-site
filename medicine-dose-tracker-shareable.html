@@ -1,0 +1,1230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>Medicine Dose Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #f4f6f3;
+        --bg-soft: #eaf0ea;
+        --card: #ffffff;
+        --card-border: #dde5dd;
+        --ink: #182420;
+        --ink-2: #42534b;
+        --ink-3: #71827a;
+        --line: #e2e9e2;
+        --teal: #0e7a66;
+        --teal-soft: #e3f2ed;
+        --rose: #b94a3a;
+        --rose-soft: #fbeae7;
+        --honey: #9a6b12;
+        --honey-soft: #faf0d7;
+        --due: #177245;
+        --due-soft: #e2f3e7;
+        --shadow: 0 10px 30px rgba(24, 36, 32, 0.08), 0 2px 6px rgba(24, 36, 32, 0.05);
+        --shadow-sm: 0 2px 8px rgba(24, 36, 32, 0.06);
+        --overlay: rgba(18, 26, 22, 0.55);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #121614;
+          --bg-soft: #171d1a;
+          --card: #1c2320;
+          --card-border: #2c3631;
+          --ink: #eef4f0;
+          --ink-2: #b9c8bf;
+          --ink-3: #87998e;
+          --line: #2c3631;
+          --teal: #2fbf9f;
+          --teal-soft: #17352e;
+          --rose: #e88a7a;
+          --rose-soft: #3d2420;
+          --honey: #e0af4e;
+          --honey-soft: #38300f;
+          --due: #5ecf8a;
+          --due-soft: #173325;
+          --shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.3);
+          --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+          --overlay: rgba(0, 0, 0, 0.68);
+        }
+      }
+      * { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+        margin: 0;
+        font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.45;
+      }
+      .wrap { max-width: 1080px; margin: 0 auto; padding: 22px 16px 56px; }
+
+      /* Header */
+      header { margin-bottom: 18px; }
+      h1 {
+        font-size: 31px; font-weight: 900; letter-spacing: -0.02em;
+        margin: 0 0 4px; line-height: 1.12;
+      }
+      .today-line { color: var(--ink-2); font-weight: 700; font-size: 15px; margin: 0; }
+
+      /* Due banner */
+      .due-banner {
+        display: none; align-items: flex-start; gap: 10px;
+        background: var(--due-soft); border: 1px solid var(--due);
+        border-radius: 14px; padding: 12px 14px; margin-bottom: 16px;
+        font-weight: 800; font-size: 15px; color: var(--ink);
+      }
+      .due-banner.show { display: flex; }
+      .due-banner .dot {
+        width: 11px; height: 11px; border-radius: 50%; background: var(--due);
+        margin-top: 5px; flex-shrink: 0;
+        animation: pulse 1.6s ease-in-out infinite;
+      }
+      @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+      @media (prefers-reduced-motion: reduce) { .due-banner .dot, .status-line.due .status-dot { animation: none; } }
+
+      /* Child sections */
+      .child-section {
+        border: 2px solid var(--cc);
+        border-radius: 24px;
+        margin-bottom: 26px;
+        overflow: hidden;
+        background: var(--card);
+        box-shadow: var(--shadow);
+      }
+      .child-head {
+        display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+        padding: 14px 16px;
+        background: var(--cc-soft);
+        border-bottom: 2px solid var(--cc);
+      }
+      .child-avatar {
+        width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+        background: var(--cc); color: #fff;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 19px; font-weight: 900;
+      }
+      @media (prefers-color-scheme: dark) { .child-avatar { color: #10150f; } }
+      .child-name-wrap { flex: 1; min-width: 170px; }
+      .child-name-label { font-size: 12px; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2); margin: 0; }
+      .child-name-input {
+        width: 100%; border: none; background: transparent; padding: 0;
+        font: inherit; font-size: 21px; font-weight: 900; color: var(--ink); outline: none;
+        border-bottom: 2px dashed transparent;
+      }
+      .child-name-input:focus { border-bottom-color: var(--cc); }
+      .child-name-input::placeholder { color: var(--ink-3); }
+      .child-color-tag {
+        font-size: 12.5px; font-weight: 900; color: #fff; background: var(--cc);
+        padding: 5px 11px; border-radius: 999px; white-space: nowrap;
+      }
+      @media (prefers-color-scheme: dark) { .child-color-tag { color: #10150f; } }
+      .child-remove {
+        font: inherit; font-size: 13px; font-weight: 800; cursor: pointer;
+        background: transparent; color: var(--ink-2);
+        border: 1.5px solid var(--line); border-radius: 10px; padding: 7px 11px;
+      }
+      .child-remove.confirm { background: var(--rose); border-color: var(--rose); color: #fff; }
+      .child-body { padding: 16px; }
+      .child-due-line { font-weight: 800; font-size: 14.5px; color: var(--ink-2); margin: 0 0 12px; }
+      .child-due-line strong { color: var(--due); }
+
+      /* Medicine cards */
+      .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(295px, 1fr)); gap: 14px; }
+      .med-card {
+        background: var(--card); border: 1px solid var(--card-border);
+        border-radius: 18px; box-shadow: var(--shadow-sm); overflow: hidden;
+        display: flex; flex-direction: column;
+      }
+      .med-top { padding: 16px 16px 0; }
+      .med-head { display: flex; align-items: center; gap: 11px; }
+      .med-badge {
+        width: 46px; height: 46px; border-radius: 14px; flex-shrink: 0;
+        display: flex; align-items: center; justify-content: center;
+      }
+      .med-badge svg { width: 27px; height: 27px; }
+      .med-ibu .med-badge { background: var(--teal-soft); color: var(--teal); }
+      .med-tyl .med-badge { background: var(--rose-soft); color: var(--rose); }
+      .med-cough .med-badge { background: var(--honey-soft); color: var(--honey); }
+      .med-name { font-size: 19px; font-weight: 900; letter-spacing: -0.01em; line-height: 1.15; margin: 0; }
+      .med-sub { font-size: 12.5px; font-weight: 700; color: var(--ink-3); margin: 1px 0 0; }
+      .interval-pill {
+        margin-left: auto; flex-shrink: 0; align-self: flex-start;
+        font-size: 12px; font-weight: 900; color: var(--ink-2);
+        background: var(--bg-soft); border: 1px solid var(--line);
+        padding: 4px 9px; border-radius: 999px; white-space: nowrap;
+      }
+      .times { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin: 14px 0 0; }
+      .time-box { background: var(--bg-soft); border-radius: 13px; padding: 10px 12px; }
+      .time-box .k { font-size: 11.5px; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 2px; }
+      .time-box .v { font-size: 18px; font-weight: 900; margin: 0; line-height: 1.2; }
+      .time-box .d { font-size: 12.5px; font-weight: 700; color: var(--ink-2); margin: 1px 0 0; }
+      .med-ibu .time-box.next { background: var(--teal-soft); }
+      .med-tyl .time-box.next { background: var(--rose-soft); }
+      .med-cough .time-box.next { background: var(--honey-soft); }
+      .time-box.next.is-due { background: var(--due-soft); outline: 2px solid var(--due); }
+      .time-box.next.is-due .v { color: var(--due); }
+
+      .status-line { display: flex; align-items: center; gap: 8px; margin: 12px 0 0; font-weight: 800; font-size: 14.5px; }
+      .status-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--ink-3); flex-shrink: 0; }
+      .status-line.due { color: var(--due); }
+      .status-line.due .status-dot { background: var(--due); animation: pulse 1.6s ease-in-out infinite; }
+      .track { height: 8px; border-radius: 99px; background: var(--line); margin-top: 8px; overflow: hidden; }
+      .track > div { height: 100%; border-radius: 99px; transition: width 0.6s ease; }
+      .med-ibu .track > div { background: var(--teal); }
+      .med-tyl .track > div { background: var(--rose); }
+      .med-cough .track > div { background: var(--honey); }
+      .track > div.full { background: var(--due) !important; }
+
+      .med-actions { padding: 14px 16px 16px; margin-top: auto; }
+      .give-btn {
+        width: 100%; border: none; cursor: pointer; font: inherit;
+        font-size: 17px; font-weight: 900; color: #fff;
+        padding: 14px 14px; border-radius: 13px;
+        display: flex; align-items: center; justify-content: center; gap: 9px;
+        transition: transform 0.08s ease;
+      }
+      .give-btn:active { transform: scale(0.985); }
+      .med-ibu .give-btn { background: var(--teal); }
+      .med-tyl .give-btn { background: var(--rose); }
+      .med-cough .give-btn { background: var(--honey); }
+      @media (prefers-color-scheme: dark) {
+        .med-ibu .give-btn, .med-tyl .give-btn, .med-cough .give-btn { color: #10150f; }
+      }
+      .give-btn.is-due { background: var(--due) !important; color: #fff !important; }
+      .give-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+      .sub-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 9px; }
+      .ghost-btn {
+        font: inherit; font-size: 13.5px; font-weight: 800; cursor: pointer;
+        background: transparent; color: var(--ink); border: 1.5px solid var(--line);
+        border-radius: 11px; padding: 9px 6px;
+        display: flex; align-items: center; justify-content: center; gap: 6px; text-align: center;
+      }
+      .ghost-btn:active { background: var(--bg-soft); }
+      .ghost-btn svg { width: 15px; height: 15px; flex-shrink: 0; color: var(--ink-2); }
+
+      .manual-form { display: none; margin-top: 11px; border-top: 1px dashed var(--line); padding-top: 12px; }
+      .manual-form.open { display: block; }
+      .manual-form label { display: block; font-size: 12.5px; font-weight: 800; color: var(--ink-2); margin: 0 0 5px; }
+      .manual-form input[type="datetime-local"],
+      .manual-form input[type="text"] {
+        width: 100%; font: inherit; font-size: 16px; font-weight: 600; color: var(--ink);
+        background: var(--bg); border: 1.5px solid var(--line); border-radius: 11px;
+        padding: 10px 12px; margin-bottom: 10px; color-scheme: light dark;
+      }
+      .manual-save {
+        width: 100%; font: inherit; font-size: 15px; font-weight: 900; cursor: pointer;
+        background: var(--ink); color: var(--bg); border: none; border-radius: 11px; padding: 11px;
+      }
+
+      .med-history { border-top: 1px solid var(--line); padding: 11px 16px 14px; }
+      .med-history h3 { font-size: 12.5px; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 6px; }
+      .hist-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+      .hist-list li { display: flex; align-items: center; gap: 8px; padding: 5px 0; font-size: 14px; font-weight: 700; }
+      .hist-list .h-time { font-weight: 900; }
+      .hist-list .h-note { color: var(--ink-3); font-weight: 600; font-size: 13px; }
+      .hist-del {
+        margin-left: auto; border: none; background: transparent; cursor: pointer;
+        color: var(--ink-3); font: inherit; font-size: 12.5px; font-weight: 800;
+        padding: 4px 6px; border-radius: 8px; flex-shrink: 0;
+      }
+      .hist-empty { font-size: 13.5px; font-weight: 600; color: var(--ink-3); margin: 0; }
+
+      /* Add child */
+      .add-child {
+        background: var(--card); border: 2px dashed var(--card-border);
+        border-radius: 20px; padding: 16px; margin-bottom: 8px;
+        display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+      }
+      .add-child h2 { font-size: 18px; font-weight: 900; margin: 0; width: 100%; }
+      .add-child input {
+        flex: 1; min-width: 180px; font: inherit; font-size: 16px; font-weight: 700; color: var(--ink);
+        background: var(--bg); border: 1.5px solid var(--line); border-radius: 12px; padding: 12px 14px;
+      }
+      .add-child button {
+        font: inherit; font-size: 15px; font-weight: 900; cursor: pointer;
+        background: var(--ink); color: var(--bg); border: none; border-radius: 12px; padding: 12px 18px;
+      }
+
+      /* Sections */
+      section.block { margin-top: 26px; }
+      section.block > h2 { font-size: 21px; font-weight: 900; letter-spacing: -0.01em; margin: 0 0 4px; }
+      section.block > p.lede { color: var(--ink-2); font-weight: 600; font-size: 14.5px; margin: 0 0 13px; }
+
+      .log-card {
+        background: var(--card); border: 1px solid var(--card-border);
+        border-radius: 18px; box-shadow: var(--shadow-sm); padding: 6px 16px;
+      }
+      .log-list { list-style: none; margin: 0; padding: 0; }
+      .log-list li { display: flex; align-items: center; gap: 11px; padding: 11px 0; border-bottom: 1px solid var(--line); }
+      .log-list li:last-child { border-bottom: none; }
+      .log-child-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
+      .log-main { min-width: 0; }
+      .log-med { font-weight: 900; font-size: 15.5px; display: block; line-height: 1.25; }
+      .log-when { font-weight: 600; font-size: 13.5px; color: var(--ink-2); display: block; }
+      .log-child-name { font-weight: 900; }
+      .log-del {
+        margin-left: auto; border: 1.5px solid var(--line); background: transparent; cursor: pointer;
+        color: var(--ink-2); font: inherit; font-size: 13px; font-weight: 800;
+        padding: 6px 10px; border-radius: 9px; flex-shrink: 0;
+      }
+      .log-empty { padding: 16px 2px; font-weight: 600; color: var(--ink-3); margin: 0; }
+
+      .export-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+      .export-btn {
+        font: inherit; font-size: 15px; font-weight: 900; cursor: pointer;
+        border-radius: 13px; padding: 13px 10px; border: none;
+        display: flex; align-items: center; justify-content: center; gap: 8px; text-align: center;
+      }
+      .export-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+      .export-btn.primary { background: var(--teal); color: #fff; }
+      @media (prefers-color-scheme: dark) { .export-btn.primary { color: #10150f; } }
+      .export-btn.secondary { background: var(--card); color: var(--ink); border: 1.5px solid var(--line); }
+      .share-note {
+        background: var(--bg-soft); border: 1px solid var(--line); border-radius: 13px;
+        padding: 12px 14px; font-size: 14px; font-weight: 600; color: var(--ink-2); margin-top: 12px;
+      }
+      .share-note strong { color: var(--ink); }
+
+      .file-fallback {
+        margin-top: 12px; background: var(--card); border: 1.5px solid var(--teal);
+        border-radius: 14px; padding: 14px;
+      }
+      .fb-head { display: flex; align-items: center; gap: 10px; }
+      .fb-head strong { font-size: 15px; font-weight: 900; word-break: break-all; flex: 1; }
+      .fb-close {
+        font: inherit; font-size: 13px; font-weight: 800; cursor: pointer; flex-shrink: 0;
+        background: var(--bg-soft); color: var(--ink); border: 1.5px solid var(--line);
+        border-radius: 9px; padding: 6px 11px;
+      }
+      .fb-note { font-size: 13.5px; font-weight: 600; color: var(--ink-2); margin: 8px 0 10px; }
+      .fb-pre {
+        margin: 0 0 12px; background: var(--bg-soft); border: 1px solid var(--line);
+        border-radius: 11px; padding: 11px 12px; max-height: 260px; overflow: auto;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 12px; line-height: 1.5; white-space: pre-wrap; word-break: break-word;
+        color: var(--ink);
+      }
+      .fb-copy { width: 100%; }
+
+      footer { margin-top: 30px; }
+      footer p { font-size: 13px; font-weight: 600; color: var(--ink-3); margin: 0; text-align: center; }
+
+      /* Modal */
+      .overlay {
+        position: fixed; inset: 0; background: var(--overlay);
+        display: none; align-items: center; justify-content: center;
+        padding: 20px; z-index: 50;
+      }
+      .overlay.open { display: flex; }
+      .modal {
+        background: var(--card); border-radius: 22px; box-shadow: var(--shadow);
+        max-width: 400px; width: 100%; padding: 26px 22px 20px; text-align: center;
+        animation: pop 0.18s ease;
+      }
+      @keyframes pop { from { transform: scale(0.94); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+      @media (prefers-reduced-motion: reduce) { .modal { animation: none; } }
+      .modal .m-icon {
+        width: 62px; height: 62px; border-radius: 50%; margin: 0 auto 13px;
+        background: var(--rose-soft); color: var(--rose);
+        display: flex; align-items: center; justify-content: center;
+      }
+      .modal .m-icon svg { width: 32px; height: 32px; }
+      .modal .m-icon.ok { background: var(--due-soft); color: var(--due); }
+      .modal h2 { font-size: 22px; font-weight: 900; margin: 0 0 7px; letter-spacing: -0.01em; }
+      .modal p { font-size: 16px; font-weight: 600; color: var(--ink-2); margin: 0 0 6px; }
+      .modal .m-big { font-size: 27px; font-weight: 900; color: var(--ink); margin: 8px 0 4px; line-height: 1.15; }
+      .modal .m-sub { font-size: 14.5px; font-weight: 700; color: var(--ink-3); margin: 0 0 18px; }
+      .modal .m-child {
+        display: inline-block; font-size: 13px; font-weight: 900; color: #fff;
+        padding: 4px 12px; border-radius: 999px; margin-bottom: 12px;
+      }
+      @media (prefers-color-scheme: dark) { .modal .m-child { color: #10150f; } }
+      .modal-btn {
+        width: 100%; font: inherit; font-size: 16px; font-weight: 900; cursor: pointer;
+        border: none; border-radius: 13px; padding: 13px; margin-top: 8px;
+      }
+      .modal-btn.main { background: var(--ink); color: var(--bg); }
+      .modal-btn.alt { background: var(--bg-soft); color: var(--ink); border: 1.5px solid var(--line); }
+
+      /* Toast */
+      .toast {
+        position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom));
+        transform: translate(-50%, 90px); z-index: 60;
+        background: var(--ink); color: var(--bg); font-weight: 800; font-size: 14.5px;
+        padding: 12px 18px; border-radius: 999px; box-shadow: var(--shadow);
+        max-width: calc(100vw - 32px); text-align: center;
+        transition: transform 0.3s ease; pointer-events: none;
+      }
+      .toast.show { transform: translate(-50%, 0); }
+
+      @media (max-width: 420px) {
+        h1 { font-size: 27px; }
+        .time-box .v { font-size: 16.5px; }
+        .child-body { padding: 12px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>Medicine Dose Tracker</h1>
+        <p class="today-line" id="todayLine">—</p>
+      </header>
+
+      <div class="due-banner" id="dueBanner" role="status">
+        <span class="dot"></span>
+        <span id="dueBannerText"></span>
+      </div>
+
+      <div id="childSections"></div>
+
+      <div class="add-child">
+        <h2>Add another child</h2>
+        <input id="newChildName" type="text" placeholder="Child's name" autocomplete="off" />
+        <button id="btnAddChild" type="button">+ Add child</button>
+      </div>
+
+      <section class="block">
+        <h2>Full log — all children</h2>
+        <p class="lede">Every dose recorded, newest first. Each entry shows which child it belongs to, with their color.</p>
+        <div class="log-card">
+          <ul class="log-list" id="logList"></ul>
+          <p class="log-empty" id="logEmpty" style="display:none;">No doses recorded yet.</p>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Export &amp; share</h2>
+        <p class="lede">Send the log to another phone, or keep a copy for your records. Every dose is exported with its child's name and color, so children never get mixed up.</p>
+        <div class="export-grid">
+          <button class="export-btn primary" id="btnCsv" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 21h16"/></svg>
+            Download CSV
+          </button>
+          <button class="export-btn secondary" id="btnCopyLog" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy log as text
+          </button>
+          <button class="export-btn secondary" id="btnBackup" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 21h16"/></svg>
+            Export backup file
+          </button>
+          <button class="export-btn secondary" id="btnImport" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="m7 7 5-5 5 5"/><path d="M4 21h16"/></svg>
+            Import backup file
+          </button>
+          <input type="file" id="importFile" accept=".json,application/json" style="display:none;" />
+        </div>
+        <div class="file-fallback" id="fileFallback" style="display:none;">
+          <div class="fb-head">
+            <strong id="fbName"></strong>
+            <button class="fb-close" id="fbClose" type="button">Close</button>
+          </div>
+          <p class="fb-note">Sharing isn't available here, so the file is shown below instead. Copy it and paste it where you need it — or into a note you send to the other phone.</p>
+          <pre class="fb-pre" id="fbPre"></pre>
+          <button class="export-btn primary fb-copy" id="fbCopy" type="button">Copy file contents</button>
+        </div>
+        <div class="share-note">
+          <strong>Sharing with another phone:</strong> each phone keeps its own copy of the log.
+          To hand over, tap <strong>Export backup file</strong> here, send that file to the other phone
+          (Messages, AirDrop, email), then open this tracker there and tap <strong>Import backup file</strong>.
+          All children and their doses come across together.
+        </div>
+      </section>
+
+      <footer>
+        <p>This tracker records dose times only. For amounts and dosing questions, follow the package directions or ask your pharmacist or pediatrician.</p>
+      </footer>
+    </div>
+
+    <!-- Too-early / logged modal -->
+    <div class="overlay" id="overlay">
+      <div class="modal" role="alertdialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="m-icon" id="modalIcon"></div>
+        <div><span class="m-child" id="modalChild" style="display:none;"></span></div>
+        <h2 id="modalTitle">Too early</h2>
+        <p id="modalBody"></p>
+        <div class="m-big" id="modalBig"></div>
+        <p class="m-sub" id="modalSub"></p>
+        <button class="modal-btn alt" id="modalCopy" type="button" style="display:none;">Copy this time to set a phone alarm</button>
+        <button class="modal-btn main" id="modalOk" type="button">Got it</button>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status"></div>
+
+    <script>
+      (function () {
+        "use strict";
+
+        var INTERVAL_MS = 6 * 60 * 60 * 1000; // 6 hours
+
+        var MEDS = [
+          {
+            id: "ibuprofen", name: "Ibuprofen", sub: "Advil / Motrin", cls: "med-ibu",
+            icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3.2" y="8.6" width="17.6" height="6.8" rx="3.4" transform="rotate(-35 12 12)"/><path d="M9.2 6.4l5.4 7.4" transform="rotate(-35 12 12)"/></svg>'
+          },
+          {
+            id: "tylenol", name: "Tylenol", sub: "Acetaminophen", cls: "med-tyl",
+            icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.4"/><path d="M4.9 8.2l14.2 7.6"/></svg>'
+          },
+          {
+            id: "cough", name: "Cough Syrup", sub: "Cough &amp; cold syrup", cls: "med-cough",
+            icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3h4"/><path d="M10.5 3v3L8 8.5V19a1.6 1.6 0 0 0 1.6 1.6h4.8A1.6 1.6 0 0 0 16 19V8.5L13.5 6V3"/><path d="M8 13.5h8"/></svg>'
+          }
+        ];
+
+        // Distinct color code per child (assigned in order as children are added).
+        var CHILD_COLORS = [
+          { name: "Teal",   hex: "#0e7a66", soft: "#e0f0ea" },
+          { name: "Blue",   hex: "#33659e", soft: "#e2ebf6" },
+          { name: "Plum",   hex: "#8a4b7c", soft: "#f4e8f1" },
+          { name: "Rust",   hex: "#b45a1b", soft: "#faeee0" },
+          { name: "Rose",   hex: "#b83a5e", soft: "#fae7ec" },
+          { name: "Olive",  hex: "#67781f", soft: "#eef2da" }
+        ];
+        var CHILD_COLORS_DARK_SOFT = ["#17352e", "#1b2a3d", "#37222f", "#3a2812", "#3a1e29", "#2c3316"];
+
+        function medById(id) {
+          for (var i = 0; i < MEDS.length; i++) if (MEDS[i].id === id) return MEDS[i];
+          return null;
+        }
+
+        var seq = 1;
+        function uid(prefix) { return prefix + (seq++) + "-" + Date.now().toString(36); }
+
+        // ---------- state ----------
+        // First/primary child: name intentionally left blank until the user sets it.
+        var children = [
+          { id: "child-1", name: "", colorIdx: 0 }
+        ];
+        // First dose, as given: Ibuprofen at 4:17 PM on November 2, 2026 (local time), for the first child.
+        var doses = [
+          { id: uid("d"), child: "child-1", med: "ibuprofen", ts: new Date(2026, 10, 2, 16, 17, 0, 0).getTime(), amount: "", note: "First dose" }
+        ];
+        var childSeq = 2;
+
+        function childById(id) {
+          for (var i = 0; i < children.length; i++) if (children[i].id === id) return children[i];
+          return null;
+        }
+        function childIndex(id) {
+          for (var i = 0; i < children.length; i++) if (children[i].id === id) return i;
+          return -1;
+        }
+        // Neutral label until the user names the child: "Child 1", "Child 2", ...
+        function childLabel(child) {
+          if (child.name && child.name.trim()) return child.name.trim();
+          return "Child " + (childIndex(child.id) + 1);
+        }
+        function childColor(child) { return CHILD_COLORS[child.colorIdx % CHILD_COLORS.length]; }
+        function isDark() {
+          return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        }
+        function childSoft(child) {
+          return isDark() ? CHILD_COLORS_DARK_SOFT[child.colorIdx % CHILD_COLORS_DARK_SOFT.length]
+                          : childColor(child).soft;
+        }
+
+        // ---------- formatting ----------
+        function pad(n) { return (n < 10 ? "0" : "") + n; }
+        function fmtTime(ts) {
+          var d = new Date(ts), h = d.getHours(), ap = h >= 12 ? "PM" : "AM";
+          h = h % 12; if (h === 0) h = 12;
+          return h + ":" + pad(d.getMinutes()) + " " + ap;
+        }
+        var DAYS = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+        var DAYS_S = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+        var MON = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+        var MON_S = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+        function fmtDay(ts) {
+          var d = new Date(ts), now = new Date();
+          function same(a, b) { return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate(); }
+          if (same(d, now)) return "Today";
+          if (same(d, new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1))) return "Yesterday";
+          if (same(d, new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1))) return "Tomorrow";
+          return DAYS_S[d.getDay()] + ", " + MON_S[d.getMonth()] + " " + d.getDate();
+        }
+        function fmtFull(ts) {
+          var d = new Date(ts);
+          return DAYS_S[d.getDay()] + ", " + MON_S[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear() + " at " + fmtTime(ts);
+        }
+        function fmtDurPlain(ms) {
+          ms = Math.abs(ms);
+          var mins = Math.round(ms / 60000);
+          var h = Math.floor(mins / 60), m = mins % 60;
+          if (h >= 1) return h + "h " + m + "m";
+          return m + " min";
+        }
+        function fmtDur(ms) {
+          return (ms < 0 ? "" : "in ") + fmtDurPlain(ms) + (ms < 0 ? " ago" : "");
+        }
+        function escapeHtml(s) {
+          return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+                          .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+        }
+
+        // ---------- per-child, per-medicine state ----------
+        function dosesFor(childId, medId) {
+          return doses.filter(function (d) { return d.child === childId && d.med === medId; })
+                      .sort(function (a, b) { return b.ts - a.ts; });
+        }
+        function lastDose(childId, medId) {
+          var list = dosesFor(childId, medId);
+          return list.length ? list[0] : null;
+        }
+        function nextDue(childId, medId) {
+          var last = lastDose(childId, medId);
+          return last ? last.ts + INTERVAL_MS : null;
+        }
+
+        // ---------- toast ----------
+        var toastEl = document.getElementById("toast"), toastTimer = null;
+        function toast(msg) {
+          toastEl.textContent = msg;
+          toastEl.classList.add("show");
+          clearTimeout(toastTimer);
+          toastTimer = setTimeout(function () { toastEl.classList.remove("show"); }, 3400);
+        }
+
+        // ---------- clipboard ----------
+        function copyText(text, okMsg) {
+          function done() { toast(okMsg); }
+          function fallback() {
+            var ta = document.createElement("textarea");
+            ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+            document.body.appendChild(ta); ta.select();
+            try { document.execCommand("copy"); done(); }
+            catch (e) { toast("Copy didn't work — the time is: " + text); }
+            document.body.removeChild(ta);
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(done, fallback);
+          } else { fallback(); }
+        }
+
+        // ---------- modal ----------
+        var overlay = document.getElementById("overlay");
+        var modalIcon = document.getElementById("modalIcon");
+        var modalChild = document.getElementById("modalChild");
+        var modalTitle = document.getElementById("modalTitle");
+        var modalBody = document.getElementById("modalBody");
+        var modalBig = document.getElementById("modalBig");
+        var modalSub = document.getElementById("modalSub");
+        var modalCopy = document.getElementById("modalCopy");
+        var modalCopyText = "";
+        var ICON_CLOCK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>';
+        var ICON_CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5"/></svg>';
+
+        function setModalChild(child) {
+          modalChild.style.display = "inline-block";
+          modalChild.style.background = childColor(child).hex;
+          modalChild.textContent = childLabel(child) + " · " + childColor(child).name;
+        }
+        function showTooEarly(child, med, dueTs) {
+          var label = childLabel(child);
+          modalIcon.className = "m-icon";
+          modalIcon.innerHTML = ICON_CLOCK;
+          setModalChild(child);
+          modalTitle.textContent = "Too early for " + med.name;
+          modalBody.textContent = "It's too early — it hasn't been 6 hours yet for " + label + ". " +
+            label + " can have " + med.name + " again at:";
+          modalBig.textContent = fmtTime(dueTs);
+          modalSub.textContent = fmtDay(dueTs) + " · " + fmtDur(dueTs - Date.now()) + " from now";
+          modalCopyText = label + " — " + med.name + " next dose: " + fmtFull(dueTs);
+          modalCopy.style.display = "block";
+          modalCopy.textContent = "Copy " + fmtTime(dueTs) + " to set a phone alarm";
+          overlay.classList.add("open");
+        }
+        function showLogged(child, med, ts) {
+          var label = childLabel(child);
+          var due = ts + INTERVAL_MS;
+          modalIcon.className = "m-icon ok";
+          modalIcon.innerHTML = ICON_CHECK;
+          setModalChild(child);
+          modalTitle.textContent = med.name + " logged";
+          modalBody.textContent = "Dose for " + label + " recorded at " + fmtTime(ts) + ". Next dose can be given at:";
+          modalBig.textContent = fmtTime(due);
+          modalSub.textContent = fmtDay(due) + " · " + fmtDur(due - Date.now()) + " from now";
+          modalCopyText = label + " — " + med.name + " next dose: " + fmtFull(due);
+          modalCopy.style.display = "block";
+          modalCopy.textContent = "Copy " + fmtTime(due) + " to set a phone alarm";
+          overlay.classList.add("open");
+        }
+        function closeModal() { overlay.classList.remove("open"); }
+        document.getElementById("modalOk").addEventListener("click", closeModal);
+        overlay.addEventListener("click", function (e) { if (e.target === overlay) closeModal(); });
+        modalCopy.addEventListener("click", function () {
+          copyText(modalCopyText, "Copied — set your phone alarm for that time.");
+        });
+
+        // ---------- logging (always scoped to one child + one medicine) ----------
+        function tryLogNow(child, med) {
+          var now = Date.now();
+          var due = nextDue(child.id, med.id);
+          if (due !== null && now < due) { showTooEarly(child, med, due); return; }
+          doses.push({ id: uid("d"), child: child.id, med: med.id, ts: now, amount: "", note: "" });
+          render();
+          showLogged(child, med, now);
+        }
+        function tryLogAt(child, med, ts, amount, note) {
+          if (isNaN(ts)) { toast("Pick a date and time first."); return false; }
+          var list = dosesFor(child.id, med.id).slice().sort(function (a, b) { return a.ts - b.ts; });
+          var prev = null, next = null, i;
+          for (i = 0; i < list.length; i++) {
+            if (list[i].ts <= ts) prev = list[i];
+            if (list[i].ts > ts && next === null) next = list[i];
+          }
+          if (prev && ts - prev.ts < INTERVAL_MS) { showTooEarly(child, med, prev.ts + INTERVAL_MS); return false; }
+          if (next && next.ts - ts < INTERVAL_MS) { showTooEarly(child, med, ts + INTERVAL_MS); return false; }
+          doses.push({ id: uid("d"), child: child.id, med: med.id, ts: ts, amount: amount || "", note: note || "" });
+          render();
+          toast(med.name + " for " + childLabel(child) + " logged for " + fmtTime(ts) + ", " + fmtDay(ts) + ".");
+          return true;
+        }
+        function deleteDose(id) {
+          doses = doses.filter(function (d) { return d.id !== id; });
+          render();
+          toast("Entry removed.");
+        }
+
+        // ---------- build child sections ----------
+        var sectionsEl = document.getElementById("childSections");
+        var cardEls = {};   // "childId|medId" -> card element
+        var openManual = {}; // "childId|medId" -> bool
+        var removeArmed = {}; // childId -> timestamp
+
+        function key(childId, medId) { return childId + "|" + medId; }
+
+        function buildSections(focusChildId) {
+          sectionsEl.innerHTML = "";
+          cardEls = {};
+          children.forEach(function (child) {
+            var color = childColor(child);
+            var section = document.createElement("section");
+            section.className = "child-section";
+            section.style.setProperty("--cc", color.hex);
+            section.style.setProperty("--cc-soft", childSoft(child));
+            section.setAttribute("aria-label", "Dose tracker for " + childLabel(child));
+
+            var initial = child.name && child.name.trim() ? child.name.trim().charAt(0).toUpperCase() : String(childIndex(child.id) + 1);
+            var head = document.createElement("div");
+            head.className = "child-head";
+            head.innerHTML =
+              '<div class="child-avatar" data-role="avatar">' + escapeHtml(initial) + '</div>' +
+              '<div class="child-name-wrap">' +
+                '<p class="child-name-label">' + escapeHtml(childLabel(child)) + ' · ' + escapeHtml(color.name) + '</p>' +
+                '<input class="child-name-input" type="text" autocomplete="off" ' +
+                  'placeholder="Tap to add this child\'s name" aria-label="Name for ' + escapeHtml(childLabel(child)) + '" ' +
+                  'value="' + escapeHtml(child.name || "") + '" />' +
+              '</div>' +
+              '<span class="child-color-tag">' + escapeHtml(color.name) + '</span>';
+            if (children.length > 1) {
+              var rm = document.createElement("button");
+              rm.type = "button"; rm.className = "child-remove"; rm.textContent = "Remove child";
+              rm.addEventListener("click", function () {
+                var count = doses.filter(function (d) { return d.child === child.id; }).length;
+                if (count > 0 && !removeArmed[child.id]) {
+                  removeArmed[child.id] = Date.now();
+                  rm.classList.add("confirm");
+                  rm.textContent = "Tap again to remove " + childLabel(child) + " and " + count + (count === 1 ? " dose" : " doses");
+                  setTimeout(function () {
+                    delete removeArmed[child.id];
+                    rm.classList.remove("confirm");
+                    rm.textContent = "Remove child";
+                  }, 4000);
+                  return;
+                }
+                children = children.filter(function (c) { return c.id !== child.id; });
+                doses = doses.filter(function (d) { return d.child !== child.id; });
+                delete removeArmed[child.id];
+                buildSections();
+                render();
+                toast(childLabel(child) + " removed.");
+              });
+              head.appendChild(rm);
+            }
+            section.appendChild(head);
+
+            var nameInput = head.querySelector(".child-name-input");
+            nameInput.addEventListener("input", function () {
+              child.name = nameInput.value;
+              var lbl = head.querySelector(".child-name-label");
+              lbl.textContent = childLabel(child) + " · " + color.name;
+              head.querySelector('[data-role="avatar"]').textContent =
+                child.name.trim() ? child.name.trim().charAt(0).toUpperCase() : String(childIndex(child.id) + 1);
+              section.setAttribute("aria-label", "Dose tracker for " + childLabel(child));
+              renderLog();
+            });
+            nameInput.addEventListener("change", function () { render(); });
+
+            var body = document.createElement("div");
+            body.className = "child-body";
+            var dueLine = document.createElement("p");
+            dueLine.className = "child-due-line";
+            dueLine.setAttribute("data-role", "childDueLine");
+            body.appendChild(dueLine);
+
+            var cards = document.createElement("div");
+            cards.className = "cards";
+            MEDS.forEach(function (med) {
+              cards.appendChild(buildCard(child, med));
+            });
+            body.appendChild(cards);
+            section.appendChild(body);
+            sectionsEl.appendChild(section);
+          });
+
+          if (focusChildId) {
+            var inputs = sectionsEl.querySelectorAll(".child-name-input");
+            var idx = childIndex(focusChildId);
+            if (idx >= 0 && inputs[idx]) inputs[idx].focus();
+          }
+        }
+
+        function buildCard(child, med) {
+          var card = document.createElement("article");
+          card.className = "med-card " + med.cls;
+          card.innerHTML =
+            '<div class="med-top">' +
+              '<div class="med-head">' +
+                '<div class="med-badge">' + med.icon + '</div>' +
+                '<div><h3 class="med-name">' + med.name + '</h3><p class="med-sub">' + med.sub + '</p></div>' +
+                '<span class="interval-pill">Every 6 hours</span>' +
+              '</div>' +
+              '<div class="times">' +
+                '<div class="time-box"><p class="k">Last dose</p><p class="v" data-role="lastV">—</p><p class="d" data-role="lastD">No doses yet</p></div>' +
+                '<div class="time-box next" data-role="nextBox"><p class="k">Next dose due</p><p class="v" data-role="nextV">Any time</p><p class="d" data-role="nextD">No doses yet</p></div>' +
+              '</div>' +
+              '<p class="status-line" data-role="status"><span class="status-dot"></span><span data-role="statusText"></span></p>' +
+              '<div class="track"><div data-role="bar" style="width:0%"></div></div>' +
+            '</div>' +
+            '<div class="med-actions">' +
+              '<button class="give-btn" type="button" data-role="give">' +
+                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5"/></svg>' +
+                '<span data-role="giveLabel">Give dose now</span>' +
+              '</button>' +
+              '<div class="sub-actions">' +
+                '<button class="ghost-btn" type="button" data-role="copyDue">' +
+                  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9.5V13l2.5 1.5"/><path d="M9 2.5h6"/></svg>' +
+                  '<span data-role="copyLabel">Copy due time</span>' +
+                '</button>' +
+                '<button class="ghost-btn" type="button" data-role="manualToggle">' +
+                  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>' +
+                  'Log a past time' +
+                '</button>' +
+              '</div>' +
+              '<form class="manual-form" data-role="manualForm">' +
+                '<label>When was the dose given?</label>' +
+                '<input type="datetime-local" data-role="manualWhen" />' +
+                '<label>Amount (optional)</label>' +
+                '<input type="text" data-role="manualAmount" placeholder="e.g. 5 mL" />' +
+                '<label>Note (optional)</label>' +
+                '<input type="text" data-role="manualNote" placeholder="e.g. after food" />' +
+                '<button class="manual-save" type="submit">Save this dose</button>' +
+              '</form>' +
+            '</div>' +
+            '<div class="med-history"><h3>Recent doses</h3><div data-role="history"></div></div>';
+
+          cardEls[key(child.id, med.id)] = card;
+
+          card.querySelector('[data-role="give"]').addEventListener("click", function () { tryLogNow(child, med); });
+          card.querySelector('[data-role="copyDue"]').addEventListener("click", function () {
+            var due = nextDue(child.id, med.id);
+            if (due === null) { toast("No dose logged yet for " + childLabel(child) + " — " + med.name + " can be given any time."); return; }
+            copyText(childLabel(child) + " — " + med.name + " next dose: " + fmtFull(due),
+              "Copied — set your phone alarm for " + fmtTime(due) + ".");
+          });
+
+          var form = card.querySelector('[data-role="manualForm"]');
+          if (openManual[key(child.id, med.id)]) form.classList.add("open");
+          card.querySelector('[data-role="manualToggle"]').addEventListener("click", function () {
+            var k = key(child.id, med.id);
+            openManual[k] = !openManual[k];
+            form.classList.toggle("open", !!openManual[k]);
+            if (openManual[k]) {
+              var w = card.querySelector('[data-role="manualWhen"]');
+              var now = new Date();
+              w.value = now.getFullYear() + "-" + pad(now.getMonth() + 1) + "-" + pad(now.getDate()) +
+                        "T" + pad(now.getHours()) + ":" + pad(now.getMinutes());
+            }
+          });
+          form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            var w = card.querySelector('[data-role="manualWhen"]').value;
+            var ts = w ? new Date(w).getTime() : NaN;
+            var amt = card.querySelector('[data-role="manualAmount"]').value.trim();
+            var note = card.querySelector('[data-role="manualNote"]').value.trim();
+            if (tryLogAt(child, med, ts, amt, note)) {
+              openManual[key(child.id, med.id)] = false;
+              form.classList.remove("open");
+              card.querySelector('[data-role="manualAmount"]').value = "";
+              card.querySelector('[data-role="manualNote"]').value = "";
+            }
+          });
+          return card;
+        }
+
+        // ---------- render ----------
+        function render() {
+          var now = Date.now();
+          var duePhrases = [];
+
+          children.forEach(function (child) {
+            var label = childLabel(child);
+            var childDue = [];
+            MEDS.forEach(function (med) {
+              var card = cardEls[key(child.id, med.id)];
+              if (!card) return;
+              var last = lastDose(child.id, med.id);
+              var due = nextDue(child.id, med.id);
+              var lastV = card.querySelector('[data-role="lastV"]');
+              var lastD = card.querySelector('[data-role="lastD"]');
+              var nextBox = card.querySelector('[data-role="nextBox"]');
+              var nextV = card.querySelector('[data-role="nextV"]');
+              var nextD = card.querySelector('[data-role="nextD"]');
+              var status = card.querySelector('[data-role="status"]');
+              var statusText = card.querySelector('[data-role="statusText"]');
+              var bar = card.querySelector('[data-role="bar"]');
+              var giveBtn = card.querySelector('[data-role="give"]');
+              var giveLabel = card.querySelector('[data-role="giveLabel"]');
+              var copyLabel = card.querySelector('[data-role="copyLabel"]');
+              var hist = card.querySelector('[data-role="history"]');
+
+              if (last) {
+                lastV.textContent = fmtTime(last.ts);
+                lastD.textContent = fmtDay(last.ts) + (last.amount ? " · " + last.amount : "");
+              } else {
+                lastV.textContent = "—";
+                lastD.textContent = "No doses yet";
+              }
+
+              if (due === null) {
+                nextV.textContent = "Any time";
+                nextD.textContent = "No doses yet";
+                nextBox.classList.remove("is-due");
+                status.classList.add("due");
+                statusText.textContent = "No dose yet — can be given now";
+                bar.style.width = "100%"; bar.classList.add("full");
+                giveBtn.classList.add("is-due");
+                giveLabel.textContent = "Give dose now";
+                copyLabel.textContent = "Copy due time";
+                childDue.push(med.name);
+              } else if (now >= due) {
+                nextV.textContent = fmtTime(due);
+                nextD.textContent = fmtDay(due) + " · due now";
+                nextBox.classList.add("is-due");
+                status.classList.add("due");
+                statusText.textContent = (now - due < 60000)
+                  ? "Due now"
+                  : "Due now — " + fmtDurPlain(now - due) + " overdue";
+                bar.style.width = "100%"; bar.classList.add("full");
+                giveBtn.classList.add("is-due");
+                giveLabel.textContent = "Give dose now — it's due";
+                copyLabel.textContent = "Copy due time · " + fmtTime(due);
+                childDue.push(med.name);
+              } else {
+                nextV.textContent = fmtTime(due);
+                nextD.textContent = fmtDay(due);
+                nextBox.classList.remove("is-due");
+                status.classList.remove("due");
+                statusText.textContent = "Next dose " + fmtDur(due - now);
+                var pct = Math.max(0, Math.min(100, ((now - last.ts) / INTERVAL_MS) * 100));
+                bar.style.width = pct.toFixed(1) + "%"; bar.classList.remove("full");
+                giveBtn.classList.remove("is-due");
+                giveLabel.textContent = "Give dose now";
+                copyLabel.textContent = "Copy due time · " + fmtTime(due);
+              }
+
+              var list = dosesFor(child.id, med.id);
+              if (!list.length) {
+                hist.innerHTML = '<p class="hist-empty">No doses recorded yet.</p>';
+              } else {
+                var ul = document.createElement("ul");
+                ul.className = "hist-list";
+                list.slice(0, 4).forEach(function (d) {
+                  var li = document.createElement("li");
+                  var span = document.createElement("span");
+                  span.innerHTML = '<span class="h-time">' + fmtTime(d.ts) + '</span> · ' + fmtDay(d.ts) +
+                    (d.amount ? ' <span class="h-note">' + escapeHtml(d.amount) + '</span>' : '') +
+                    (d.note ? ' <span class="h-note">— ' + escapeHtml(d.note) + '</span>' : '');
+                  var del = document.createElement("button");
+                  del.type = "button"; del.className = "hist-del"; del.textContent = "Remove";
+                  del.setAttribute("aria-label", "Remove " + med.name + " dose for " + label + " at " + fmtTime(d.ts));
+                  del.addEventListener("click", function () { deleteDose(d.id); });
+                  li.appendChild(span); li.appendChild(del);
+                  ul.appendChild(li);
+                });
+                hist.innerHTML = "";
+                hist.appendChild(ul);
+              }
+            });
+
+            // Per-child due summary line + global banner phrases
+            var section = sectionsEl.children[childIndex(child.id)];
+            if (section) {
+              var line = section.querySelector('[data-role="childDueLine"]');
+              if (line) {
+                line.innerHTML = childDue.length
+                  ? "<strong>Due now for " + escapeHtml(label) + ":</strong> " + escapeHtml(childDue.join(", "))
+                  : "Nothing due right now for " + escapeHtml(label) + ".";
+              }
+            }
+            if (childDue.length) duePhrases.push(childDue.join(", ") + " for " + label);
+          });
+
+          var banner = document.getElementById("dueBanner");
+          var bannerText = document.getElementById("dueBannerText");
+          if (duePhrases.length) {
+            bannerText.textContent = "Due now: " + duePhrases.join(" · ") + ".";
+            banner.classList.add("show");
+          } else {
+            banner.classList.remove("show");
+          }
+
+          renderLog();
+        }
+
+        function renderLog() {
+          var ul = document.getElementById("logList");
+          var empty = document.getElementById("logEmpty");
+          var sorted = doses.slice().sort(function (a, b) { return b.ts - a.ts; });
+          ul.innerHTML = "";
+          empty.style.display = sorted.length ? "none" : "block";
+          sorted.forEach(function (d) {
+            var med = medById(d.med);
+            var child = childById(d.child);
+            if (!med || !child) return;
+            var label = childLabel(child);
+            var color = childColor(child);
+            var li = document.createElement("li");
+            var dot = document.createElement("span");
+            dot.className = "log-child-dot";
+            dot.style.background = color.hex;
+            dot.title = label + " (" + color.name + ")";
+            var main = document.createElement("div");
+            main.className = "log-main";
+            main.innerHTML = '<span class="log-med"><span class="log-child-name" style="color:' + color.hex + '">' +
+              escapeHtml(label) + '</span> · ' + med.name + (d.amount ? ' · ' + escapeHtml(d.amount) : "") + '</span>' +
+              '<span class="log-when">' + fmtFull(d.ts) + (d.note ? " — " + escapeHtml(d.note) : "") + '</span>';
+            var del = document.createElement("button");
+            del.type = "button"; del.className = "log-del"; del.textContent = "Delete";
+            del.setAttribute("aria-label", "Delete " + med.name + " dose for " + label + " from " + fmtFull(d.ts));
+            del.addEventListener("click", function () { deleteDose(d.id); });
+            li.appendChild(dot); li.appendChild(main); li.appendChild(del);
+            ul.appendChild(li);
+          });
+        }
+
+        // ---------- add child ----------
+        function nextColorIdx() {
+          var used = {};
+          children.forEach(function (c) { used[c.colorIdx % CHILD_COLORS.length] = true; });
+          for (var i = 0; i < CHILD_COLORS.length; i++) if (!used[i]) return i;
+          return children.length % CHILD_COLORS.length;
+        }
+        function addChild(name) {
+          var child = { id: "child-" + (childSeq++), name: (name || "").trim(), colorIdx: nextColorIdx() };
+          children.push(child);
+          buildSections();
+          render();
+          toast(childLabel(child) + " added — " + childColor(child).name + " section, with its own timers.");
+          return child;
+        }
+        document.getElementById("btnAddChild").addEventListener("click", function () {
+          var input = document.getElementById("newChildName");
+          var child = addChild(input.value);
+          input.value = "";
+          if (!child.name) {
+            // No name typed: jump to the new section's name field so they can add it there.
+            buildSections(child.id);
+            render();
+          }
+        });
+        document.getElementById("newChildName").addEventListener("keydown", function (e) {
+          if (e.key === "Enter") { e.preventDefault(); document.getElementById("btnAddChild").click(); }
+        });
+
+        // ---------- export / import ----------
+        function csvText() {
+          var rows = [["Child", "Child color", "Date", "Time", "Medicine", "Amount", "Note"]];
+          var sorted = doses.slice().sort(function (a, b) { return a.ts - b.ts; });
+          sorted.forEach(function (d) {
+            var child = childById(d.child);
+            if (!child) return;
+            var dt = new Date(d.ts);
+            var date = dt.getFullYear() + "-" + pad(dt.getMonth() + 1) + "-" + pad(dt.getDate());
+            rows.push([childLabel(child), childColor(child).name, date, fmtTime(d.ts), medById(d.med).name, d.amount || "", d.note || ""]);
+          });
+          return rows.map(function (r) {
+            return r.map(function (c) {
+              c = String(c);
+              return /[",\n]/.test(c) ? '"' + c.replace(/"/g, '""') + '"' : c;
+            }).join(",");
+          }).join("\n");
+        }
+        function plainTextLog() {
+          var lines = ["Medicine Dose Log"];
+          var sorted = doses.slice().sort(function (a, b) { return a.ts - b.ts; });
+          if (!sorted.length) lines.push("No doses recorded.");
+          sorted.forEach(function (d) {
+            var child = childById(d.child);
+            if (!child) return;
+            lines.push("• [" + childLabel(child) + " · " + childColor(child).name + "] " + medById(d.med).name +
+              " — " + fmtFull(d.ts) + (d.amount ? " · " + d.amount : "") + (d.note ? " — " + d.note : ""));
+          });
+          lines.push("");
+          children.forEach(function (child) {
+            MEDS.forEach(function (med) {
+              var due = nextDue(child.id, med.id);
+              lines.push(childLabel(child) + " — " + med.name + " next due: " +
+                (due === null ? "any time (no dose yet)" : fmtFull(due)));
+            });
+          });
+          return lines.join("\n");
+        }
+        // ---------- file delivery: share sheet first, on-screen fallback ----------
+        var fbPanel = document.getElementById("fileFallback");
+        var fbName = document.getElementById("fbName");
+        var fbPre = document.getElementById("fbPre");
+        var fbText = "";
+        function showFileFallback(filename, text) {
+          fbText = text;
+          fbName.textContent = filename;
+          fbPre.textContent = text;
+          fbPanel.style.display = "block";
+          fbPanel.scrollIntoView({ block: "nearest" });
+          toast("Sharing isn't available here — the file is shown below with a copy button.");
+        }
+        function hideFileFallback() { fbPanel.style.display = "none"; }
+        document.getElementById("fbClose").addEventListener("click", hideFileFallback);
+        document.getElementById("fbCopy").addEventListener("click", function () {
+          copyText(fbText, "File contents copied — paste them where you need them.");
+        });
+
+        // Deliver a file through the system share sheet (Messages, AirDrop, Mail,
+        // Files) with the actual file attached. Success is only reported when the
+        // share completes; a cancel says so, and any other failure falls back to
+        // showing the file contents on screen with a copy button.
+        function shareFile(filename, text, type, sharedMsg) {
+          var file = null;
+          try { file = new File([text], filename, { type: type }); } catch (e) { file = null; }
+          if (file && navigator.share && navigator.canShare) {
+            var data = { files: [file] };
+            var can = false;
+            try { can = navigator.canShare(data); } catch (e) { can = false; }
+            if (can) {
+              var p = null;
+              try { p = navigator.share(data); } catch (e) { p = null; }
+              if (p && p.then) {
+                p.then(function () {
+                  hideFileFallback();
+                  toast(sharedMsg);
+                }, function (err) {
+                  if (err && err.name === "AbortError") {
+                    toast("Share cancelled — nothing was sent.");
+                  } else {
+                    showFileFallback(filename, text);
+                  }
+                });
+                return;
+              }
+            }
+          }
+          showFileFallback(filename, text);
+        }
+        function stamp() {
+          var d = new Date();
+          return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
+        }
+
+        document.getElementById("btnCsv").addEventListener("click", function () {
+          shareFile("medicine-dose-log-" + stamp() + ".csv", csvText(), "text/csv",
+            "CSV shared — each dose includes its child and color.");
+        });
+        document.getElementById("btnCopyLog").addEventListener("click", function () {
+          copyText(plainTextLog(), "Log copied — paste it anywhere to share.");
+        });
+        document.getElementById("btnBackup").addEventListener("click", function () {
+          var payload = JSON.stringify({ app: "medicine-dose-tracker", version: 2, children: children, doses: doses }, null, 2);
+          shareFile("medicine-dose-backup-" + stamp() + ".json", payload, "application/json",
+            "Backup shared — all children included.");
+        });
+        var importFile = document.getElementById("importFile");
+        document.getElementById("btnImport").addEventListener("click", function () { importFile.click(); });
+        importFile.addEventListener("change", function () {
+          var file = importFile.files && importFile.files[0];
+          if (!file) return;
+          var reader = new FileReader();
+          reader.onload = function () {
+            try {
+              var data = JSON.parse(String(reader.result));
+              if (!data || !Array.isArray(data.doses)) throw new Error("bad file");
+              var newChildren = [];
+              if (Array.isArray(data.children) && data.children.length) {
+                data.children.forEach(function (c, i) {
+                  if (c && typeof c.id === "string") {
+                    newChildren.push({
+                      id: c.id,
+                      name: String(c.name || ""),
+                      colorIdx: (typeof c.colorIdx === "number" && isFinite(c.colorIdx)) ? c.colorIdx : i
+                    });
+                    var n = parseInt(String(c.id).replace("child-", ""), 10);
+                    if (!isNaN(n) && n >= childSeq) childSeq = n + 1;
+                  }
+                });
+              }
+              if (!newChildren.length) {
+                newChildren = [{ id: "child-1", name: String(data.child || ""), colorIdx: 0 }];
+                if (childSeq < 2) childSeq = 2;
+              }
+              var known = {};
+              newChildren.forEach(function (c) { known[c.id] = true; });
+              var clean = [];
+              data.doses.forEach(function (d) {
+                if (d && medById(d.med) && typeof d.ts === "number" && isFinite(d.ts)) {
+                  var cid = (d.child && known[d.child]) ? d.child : newChildren[0].id;
+                  clean.push({ id: uid("d"), child: cid, med: d.med, ts: d.ts, amount: String(d.amount || ""), note: String(d.note || "") });
+                }
+              });
+              children = newChildren;
+              doses = clean;
+              buildSections();
+              render();
+              toast("Backup imported — " + children.length + (children.length === 1 ? " child, " : " children, ") +
+                    clean.length + (clean.length === 1 ? " dose" : " doses") + " loaded.");
+            } catch (e) {
+              toast("That file couldn't be imported. Use a backup exported from this tracker.");
+            }
+            importFile.value = "";
+          };
+          reader.readAsText(file);
+        });
+
+        // ---------- header date + ticking ----------
+        function setToday() {
+          var d = new Date();
+          document.getElementById("todayLine").textContent =
+            DAYS[d.getDay()] + ", " + MON[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear() +
+            " · Each medicine is 6 hours apart, tracked separately for each child";
+        }
+        setToday();
+        buildSections();
+        render();
+        setInterval(function () { setToday(); render(); }, 30000);
+        if (window.matchMedia) {
+          var mq = window.matchMedia("(prefers-color-scheme: dark)");
+          if (mq.addEventListener) mq.addEventListener("change", function () { buildSections(); render(); });
+        }
+      })();
+    </script>
+  </body>
+</html>
